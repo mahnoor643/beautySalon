@@ -49,8 +49,9 @@ $sqlRun=mysqli_query($conn,$sql);
                     <th><?php echo $row['serviceID'];?></th>
                     <td><?php echo $row['serviceDescription'];?></td>
                     <td><a href="serviceExpertise.php?id=<?php echo $row['serviceID']; ?>">
-                                            <?php echo $row['l_name']; ?>
-                                        </a></td>
+                                            Eye
+                        </a>
+                    </td>
                   </tr>
                 <?php 
                 $i++;    

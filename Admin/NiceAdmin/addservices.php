@@ -53,7 +53,7 @@ if(isset($_POST['submit'])) {
                             <div class="row mb-3">
                                 <div class="col-sm-2"></div>
                                 <div class="col-sm-10">
-                                    <button class="btn-warning btn" name="submit" type="submit">Add</button>
+                                    <button class="btn-primary btn" name="submit" type="submit">Add</button>
                                 </div>
                             </div>
                         </form><!-- End Horizontal Form -->
