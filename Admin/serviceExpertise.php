@@ -1,7 +1,7 @@
 <?php 
 $id=$_GET['id'];
 require "./assets/header.php";
-require "../../assets/conn.php";
+require "../assets/conn.php";
 $sql="select * from serviceExpertise where serviceID='$id'";
 $sqlRun=mysqli_query($conn,$sql);
 

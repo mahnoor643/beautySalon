@@ -1,6 +1,6 @@
 <?php 
 require "./assets/header.php";
-require "../../assets/conn.php";
+require "../assets/conn.php";
 
 // Add Service
 if(isset($_POST['submit'])) {

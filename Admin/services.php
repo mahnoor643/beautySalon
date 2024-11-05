@@ -1,13 +1,11 @@
 <?php 
 require "./assets/header.php";
-require "../../assets/conn.php";
+require "../assets/conn.php";
 $sql="SELECT * FROM services";
 $sqlRun=mysqli_query($conn,$sql);
-
 ?>
 
 <main id="main" class="main">
-
 <div class="pagetitle">
   <h1>Services</h1>
   <!-- <nav>
