@@ -42,24 +42,24 @@ if (isset($_POST['submit'])) {
             <h5 class="card-title">Service Experties</h5>
 
             <form method="post">
-            <div class="row mb-3">
-    <label for="serviceDropdown" class="col-sm-2 col-form-label">Services</label>
-    <div class="col-sm-10">
-        <select name="service" id="serviceDropdown" class="form-select">
-            <?php
-            $sql2 = "SELECT * FROM services s LEFT JOIN packageDeals pd ON s.serviceID = pd.serviceIDFK WHERE pd.serviceIDFK IS NULL;";
-            $sql2Run = mysqli_query($conn, $sql2);
-            while ($row2 = mysqli_fetch_array($sql2Run)) {
-                ?>
-                <option value="<?php echo $row2['serviceID']; ?>">
-                    <?php echo $row2['serviceTitle']; ?>
-                </option>
-                <?php
-            }
-            ?>
-        </select>
-    </div>
-</div>
+              <div class="row mb-3">
+                <label for="serviceDropdown" class="col-sm-2 col-form-label">Services</label>
+                <div class="col-sm-10">
+                  <select name="service" id="serviceDropdown" class="form-select">
+                    <?php
+                    $sql2 = "SELECT * FROM services s LEFT JOIN packageDeals pd ON s.serviceID = pd.serviceIDFK WHERE pd.serviceIDFK IS NULL;";
+                    $sql2Run = mysqli_query($conn, $sql2);
+                    while ($row2 = mysqli_fetch_array($sql2Run)) {
+                      ?>
+                      <option value="<?php echo $row2['serviceID']; ?>">
+                        <?php echo $row2['serviceTitle']; ?>
+                      </option>
+                      <?php
+                    }
+                    ?>
+                  </select>
+                </div>
+              </div>
 
 
               <div class="row mb-3">
