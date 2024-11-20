@@ -2,6 +2,9 @@
 $id=$_GET['id'];
 require "./assets/header.php";
 require "../assets/conn.php";
+$sql1="SELECT * FROM services WHERE serviceID='$id'";
+$sql1Run=mysqli_query($conn,$sql1);
+$sql1Fetch=mysqli_fetch_array($sql1Run);
 $sql="select * from serviceExpertise where serviceID='$id'";
 $sqlRun=mysqli_query($conn,$sql);
 
@@ -22,7 +25,7 @@ if(isset($_POST['submit'])) {
 <main id="main" class="main">
 
 <div class="pagetitle">
-  <h1>Services</h1>
+  <h1>Add Service Expertise</h1>
   <!-- <nav>
     <ol class="breadcrumb">
       <li class="breadcrumb-item"><a href="index.html">Home</a></li>
@@ -39,7 +42,8 @@ if(isset($_POST['submit'])) {
 
       <div class="card">
         <div class="card-body">
-          <h5 class="card-title">Service Experties</h5>
+          <h5 class="card-title"><?php echo $sql1Fetch['serviceTitle'] ?></h5>
+          <p><?php echo $sql1Fetch['serviceDescription'] ?></p>
 
            <form method="post">
                             <div class="row mb-3">

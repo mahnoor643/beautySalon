@@ -2,7 +2,7 @@
 $id = $_GET['id'];
 require "./assets/header.php";
 require "../assets/conn.php";
-$sql = "select * from packageDeals pd join packages p on p.packageID=pd.packageID join services s on s.serviceID =pd.serviceIDFK where p.packageID='$id'";
+$sql = "select * from packageDeals pd join packages p on p.packageID=pd.packageID join serviceExpertise s on s.serviceExpertiseID =pd.serviceIDFK where p.packageID='$id'";
 $sqlRun = mysqli_query($conn, $sql);
 
 //Add the service
@@ -22,7 +22,7 @@ if (isset($_POST['submit'])) {
 <main id="main" class="main">
 
   <div class="pagetitle">
-    <h1>Services</h1>
+    <h1>Packages</h1>
     <!-- <nav>
     <ol class="breadcrumb">
       <li class="breadcrumb-item"><a href="index.html">Home</a></li>
@@ -39,20 +39,28 @@ if (isset($_POST['submit'])) {
 
         <div class="card">
           <div class="card-body">
-            <h5 class="card-title">Service Experties</h5>
+            <h5 class="card-title">Packages</h5>
 
             <form method="post">
               <div class="row mb-3">
-                <label for="serviceDropdown" class="col-sm-2 col-form-label">Services</label>
+                <label for="serviceDropdown" class="col-sm-2 col-form-label">Add Package</label>
                 <div class="col-sm-10">
                   <select name="service" id="serviceDropdown" class="form-select">
                     <?php
-                    $sql2 = "SELECT * FROM services s LEFT JOIN packageDeals pd ON s.serviceID = pd.serviceIDFK WHERE pd.serviceIDFK IS NULL;";
+                    $sql2 = "SELECT s.* 
+                            FROM serviceExpertise s
+                            LEFT JOIN packageDeals pd 
+                            ON s.serviceExpertiseID = pd.serviceIDFK 
+                            AND pd.packageID = $id
+                            LEFT JOIN packages p
+                            ON pd.packageID = p.packageID
+                            WHERE pd.serviceIDFK IS NULL;";
+
                     $sql2Run = mysqli_query($conn, $sql2);
                     while ($row2 = mysqli_fetch_array($sql2Run)) {
                       ?>
-                      <option value="<?php echo $row2['serviceID']; ?>">
-                        <?php echo $row2['serviceTitle']; ?>
+                      <option value="<?php echo $row2['serviceExpertiseID']; ?>">
+                        <?php echo $row2['serviceExperty']; ?>
                       </option>
                       <?php
                     }
@@ -85,7 +93,7 @@ if (isset($_POST['submit'])) {
                   ?>
                   <tr>
                     <th scope="row"><?php echo $i; ?></th>
-                    <td><?php echo $row['serviceTitle']; ?></td>
+                    <td><?php echo $row['serviceExperty']; ?></td>
                     <td><a href="packageServiceDelete.php?id=<?php echo $row['packageDealID']; ?>">
                         Delete
                       </a>
