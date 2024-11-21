@@ -1,4 +1,4 @@
-<?php include "assets/required/_header.php" ?>
+<?php include "assets/required/_header.php"; require "./assets/conn.php" ?>
 
             <!-- banner Area end -->
             <section class="banner">
@@ -374,23 +374,37 @@
                 <div class="container">
                     <h2 class="fw-7 fs-80 font-sec lh-110 color-white mb-48 text-center">GROOM PACKAGES</h2>
                     <div class="row">
+                        <?php
+                            $sql3="select * from packages";
+                            $sql3Run=mysqli_query($conn,$sql3);
+                            while($row3=mysqli_fetch_array($sql3Run)){
+                        ?>
                         <div class="col-lg-4 col-sm-6">
                             <div class="pricing-block mb-32 mb-lg-0">
-                                <h2 class="title fs-47 fw-7 lh-120 bg-dark-3">DEAL 1</h2>
-                                <h3 class="price fs-47 fw-7 lh-120 color-primary">$200</h3>
+                                <h2 class="title fs-47 fw-7 lh-120 bg-dark-3"><?php echo $row3['packageName']; ?></h2>
+                                <h3 class="price fs-47 fw-7 lh-120 color-primary">$<?php echo $row3['packagePrice']; ?></h3>
+                                
                                 <ul class="offer-services unstyled">
-                                    <li>Dermacos Facial</li>
-                                    <li>Face Bleach</li>
+                                <?php
+                                $pID=$row3['packageID'];
+                                    $sql4="select * from packageDeals join serviceExpertise on serviceExpertise.serviceExpertiseID=packageDeals.serviceIDFK where packageID=$pID";
+                                     $sql4Run=mysqli_query($conn,$sql4);
+                                     while($row4=mysqli_fetch_array($sql4Run)){
+                                ?>
+                                    <li><?php echo $row4['serviceExperty']; ?></li>
+                                    <?php } ?>
+                                    <!-- <li>Face Bleach</li>
                                     <li>Neck Bleach</li>
                                     <li>Hand Bleach</li>
                                     <li>Black Head Back</li>
                                     <li>Professional Hair Cut</li>
-                                    <li>Quick Manicure</li>
+                                    <li>Quick Manicure</li> -->
                                 </ul>
                                 <button class="barber-btn modal-popup">Book Now</button>
                             </div>
                         </div>
-                        <div class="col-lg-4 col-sm-6">
+                        <?php } ?>
+                        <!-- <div class="col-lg-4 col-sm-6">
                             <div class="pricing-block mb-32 mb-lg-0">
                                 <h2 class="title fs-47 fw-7 lh-120 bg-dark-3">DEAL 2</h2>
                                 <h3 class="price fs-47 fw-7 lh-120 color-primary">$400</h3>
@@ -406,7 +420,7 @@
                                 <button class="barber-btn modal-popup">Book Now</button>
                             </div>
                         </div>
-                        <div class="col-lg-4 col-sm-6 offset-lg-0 offset-sm-3">
+                        <div class="col-lg-4 col-sm-6 ">
                             <div class="pricing-block">
                                 <h2 class="title fs-47 fw-7 lh-120 bg-dark-3">DEAL 3</h2>
                                 <h3 class="price fs-47 fw-7 lh-120 color-primary">$500</h3>
@@ -421,7 +435,7 @@
                                 </ul>
                                 <button class="barber-btn modal-popup">Book Now</button>
                             </div>
-                        </div>
+                        </div> -->
                     </div>
                 </div>
             </section>
