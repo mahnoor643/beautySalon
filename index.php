@@ -1,4 +1,5 @@
-<?php include "assets/required/_header.php"; require "./assets/conn.php" ?>
+<?php include "assets/required/_header.php"; 
+require "./assets/conn.php" ?>
 
             <!-- banner Area end -->
             <section class="banner">
