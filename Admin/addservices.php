@@ -6,7 +6,23 @@ require "../assets/conn.php";
 if(isset($_POST['submit'])) {
     $title = $_POST['title'];
     $desc = $_POST['desc'];
-    $sql = "INSERT INTO services (serviceTitle, serviceDescription) VALUES ('$title', '$desc')";
+    $img_tmp = $_FILES['img']['tmp_name'];
+    $img_name = $_FILES['img']['name'];
+    $img_type = $_FILES['img']['type'];
+    $target_folder = "assets/media/service/";
+    $imgPath=$target_folder.$img_name;
+
+    $allowed_ext = array('png', 'jpeg', 'jpg', 'gif', 'jfif');
+    $ext = explode('.', $img_name);
+    $img_ext = strtolower(end($ext));
+    if (in_array($img_ext, $allowed_ext) == false) {
+        $error[] = "not required extention";
+    }
+    if (empty($error) == true) {
+        $add_img = $target_folder.$img_name;
+        move_uploaded_file($img_tmp, $target_folder . $img_name);
+    }
+    $sql = "INSERT INTO services (serviceTitle, serviceDescription,serviceImg) VALUES ('$title', '$desc','$imgPath')";
     $query=mysqli_query($conn, $sql);
     if($query) {
         echo "<script>alert('Service Added Successfully');</script>";
@@ -37,7 +53,7 @@ if(isset($_POST['submit'])) {
                         <h5 class="card-title">Add Service</h5>
 
                         <!-- Horizontal Form -->
-                        <form method="post">
+                        <form method="post" enctype="multipart/form-data">
                             <div class="row mb-3">
                                 <label for="inputEmail3" class="col-sm-2 col-form-label">Title</label>
                                 <div class="col-sm-10">
@@ -48,6 +64,12 @@ if(isset($_POST['submit'])) {
                                 <label for="inputEmail3" class="col-sm-2 col-form-label">Description</label>
                                 <div class="col-sm-10">
                                     <textarea rows="6" name="desc" class="form-control"></textarea>
+                                </div>
+                            </div>
+                            <div class="row mb-3">
+                                <label for="inputEmail3" class="col-sm-2 col-form-label">Img</label>
+                                <div class="col-sm-10">
+                                <input type="file" name="img" class="form-control" id="inputText">
                                 </div>
                             </div>
                             <div class="row mb-3">
