@@ -30,7 +30,7 @@ include "../conn.php";
 
 <body class="ui-smooth-scroll">
     <!-- Preloader -->
-    <div id="preloader">
+    <!-- <div id="preloader">
         <div class="loading loading07">
             <span data-text="T">T</span>
             <span data-text="R">R</span>
@@ -42,7 +42,7 @@ include "../conn.php";
             <span data-text="L">L</span>
             <span data-text="E">E</span>
         </div>
-    </div>
+    </div> -->
     <!-- Back To Top Start -->
     <a href="#main-wrapper" id="backto-top" class="back-to-top">
         <i class="fas fa-angle-up"></i>

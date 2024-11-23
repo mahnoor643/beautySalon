@@ -162,35 +162,33 @@
         }
     }
 
-    function validateEmail(input){
-        //Email pattern
-        input.value =input.value.replace(/^[^\s@]+@[^\s@]+\.[^\s@]+$/g,'');
+    // function validateEmail(input){
+    //     input.value =input.value.replace(/^[^\s@]+@[^\s@]+\.[^\s@]+$/g,'');
 
-        const emailError =document.getElementById('email-error');
-        //checking email
-        if(input.value){
-            emailError.style.display = 'none';
-        }else{
-            emailError.style.display = 'block';
-        }
-    }
+    //     const emailError =document.getElementById('email-error');
+    //     if(input.value){
+    //         emailError.style.display = 'none';
+    //     }else{
+    //         emailError.style.display = 'block';
+    //     }
+    // }
 
     // Validate on form submit
     document.querySelector('form').addEventListener('submit', function (e) {
         //for phone number validation
         const phoneInput = document.getElementById('phone');
         const errorElement = document.getElementById('phone-error');
-        //for email validation
-        const emailInput = document.getElementById('email');
-        const emailError = document.getElementById('email-error');
-        const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+       
+        // const emailInput = document.getElementById('email');
+        // const emailError = document.getElementById('email-error');
+        // const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
         
-        if (!emailPattern.test(emailInput.value)) {
-            e.preventDefault(); // Prevent form submission
-            emailError.style.display = 'block'; // Show error
-        } else {
-            emailError.style.display = 'none'; // Hide error
-        }
+        // if (!emailPattern.test(emailInput.value)) {
+        //     e.preventDefault(); // Prevent form submission
+        //     emailError.style.display = 'block'; // Show error
+        // } else {
+        //     emailError.style.display = 'none'; // Hide error
+        // }
         
         if (phoneInput.value.length !== 11) {
             e.preventDefault(); // Prevent form submission

@@ -1,5 +1,7 @@
-<?php include "assets/required/_header.php";
-require "./assets/conn.php" ?>
+<?php
+include "assets/required/_header.php";
+include "./assets/conn.php";
+?>
 
 <!-- banner Area end -->
 <section class="banner">
@@ -473,7 +475,61 @@ require "./assets/conn.php" ?>
                 </div>
             </div>
             <div class="col-lg-7">
-                <form method="post" class="contact-form">
+                <?php
+                if (isset($_POST['submit'])) {
+                    $name = $_POST['name'];
+                    $email = $_POST['email'];
+                    $phone = $_POST['phone'];
+                    $date = $_POST['date'];
+                    $service = $_POST['service-name'];
+                    $employee = $_POST['employee'];
+                    $sql11 = "SELECT * FROM user where email='$email'";
+                    $sql11Run = mysqli_query($conn, $sql11);
+                    if (mysqli_num_rows($sql11Run) > 0) {
+                        fetchDetails($email, $date, $service, $employee);
+                    } else {
+                        $sql8 = "insert into user(fullName,email,phoneNo,role) values('$name', '$email', '$phone', 'Client')";
+                        $sql8Run = mysqli_query($conn, $sql8);
+                        if (!$sql8Run) {
+                            die(mysqli_error());
+                        }
+                        if ($sql8Run) {
+                            fetchDetails($email, $date, $service, $employee);
+                        } else {
+                            echo "<script>alert('Account is aready created with this mail')</script>";
+                        };
+                    }
+
+                }
+                
+
+                function fetchDetails($email, $date, $service, $employee)
+                {
+                    global $conn;
+                    $sql9 = "SELECT * FROM user where email='$email'";
+                    $sql9Run = mysqli_query($conn, $sql9);
+                    if (!$sql9Run) {
+                        die(mysqli_error());
+                    }
+                    $row9 = mysqli_fetch_array($sql9Run);
+                    $userId = $row9['userID'];
+                    $fullName = $row9['fullName'];
+                    $phone = $row9['phoneNo'];
+                    $sql10 = "insert into appointment(fullName,email,phoneNo,Date,serviceID,employeeID,packageID,userID) 
+                                values('$fullName', '$email', '$phone', '$date', '$service', '$employee',NULL, '$userId')";
+                    $sql10Run = mysqli_query($conn, $sql10);
+                    if (!$sql10Run) {
+                        die(mysqli_error());
+                    }
+                    if ($sql10Run) {
+                        echo "<script>alert('Appointment has been booked successfully')</script>";
+                    } else {
+                        echo "<script>alert('Failed to book appointment')</script>";
+                    }
+                    ;
+                }
+                ?>
+                <form method="post">
                     <div class="row">
                         <div class="col-lg-6 col-12">
                             <div class="form-group mb-24">
@@ -483,8 +539,7 @@ require "./assets/conn.php" ?>
                         </div>
                         <div class="col-lg-6 col-12">
                             <div class="form-group mb-24">
-                                <input type="text" class="form-control" id="email" name="email" 
-                                    placeholder="Email" oninput="validationEmail(this)">
+                                <input type="text" class="form-control" id="email" name="email" placeholder="Email">
                                 <small id="email-error" style="color:red; display:none;">
                                     Email is not valid
                                 </small>
@@ -492,7 +547,7 @@ require "./assets/conn.php" ?>
                         </div>
                         <div class="col-lg-6 col-12">
                             <div class="form-group mb-24">
-                                <input type="tel" class="form-control" id="phone" name="phone" 
+                                <input type="tel" class="form-control" id="phone" name="phone"
                                     placeholder="Phone Number" oninput="validatePhone(this)">
                                 <small id="phone-error" style="color: red; display: none;">Phone number must be exactly
                                     11 digits.</small>
@@ -525,7 +580,7 @@ require "./assets/conn.php" ?>
                         </div>
                         <div class="col-lg-6 col-12">
                             <div class="form-group mb-48">
-                                <select class="form-selector" name="barber-name">
+                                <select class="form-selector" name="employee">
                                     <option value="1" disabled selected>Select Barber</option>
                                     <?php
                                     $sql7 = "select * from employee";
@@ -543,7 +598,7 @@ require "./assets/conn.php" ?>
                         </div>
                     </div>
                     <div class="text-center">
-                        <button type="submit" class="barber-btn">Book Appointment</button>
+                        <button type="submit" name="submit" class="barber-btn">Book Appointment</button>
                     </div>
                     <div id="message" class="alert-msg"></div>
                 </form>
