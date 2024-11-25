@@ -36,6 +36,33 @@
   * Author: BootstrapMade.com
   * License: https://bootstrapmade.com/license/
   ======================================================== -->
+  <style>
+    /* own styling here */
+
+.profile-pic {
+  width: 50px; /* Change the size as needed */
+  height: 50px;
+  border-radius: 50%; /* Makes the div circular */
+  overflow: hidden; /* Ensures the image stays inside the circle */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 2px solid #ccc; /* Optional: Adds a border around the circle */
+}
+
+.profile-pic img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* Ensures the image fills the circle without distortion */
+}
+.textWrapped {
+    word-wrap: break-word; /* Breaks long words to fit inside the cell */
+    white-space: normal;   /* Allows text to wrap to the next line */
+    overflow-wrap: break-word; /* For better compatibility */
+    max-width: 200px; /* Optional: Set a maximum width for the cell */
+}
+
+  </style>
 </head>
 
 <body>
@@ -310,6 +337,12 @@
         </a>
       </li>
 
+      <li class="nav-item">
+        <a class="nav-link collapsed" href="employees.php">
+          <i class="bi bi-card-list"></i>
+          <span>Employees</span>
+        </a>
+      </li>
       <!-- <li class="nav-item">
         <a class="nav-link collapsed" href="pages-login.html">
           <i class="bi bi-box-arrow-in-right"></i>

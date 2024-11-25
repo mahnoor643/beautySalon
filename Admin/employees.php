@@ -20,7 +20,7 @@ $sqlRun = mysqli_query($conn, $sql);
     <section class="section">
         <div class="row">
 
-            <div class="col-lg-12">
+            <div class="col">
 
                 <div class="card">
                     <div class="card-body">
@@ -47,17 +47,17 @@ $sqlRun = mysqli_query($conn, $sql);
                                     <tr>
                                         <th scope="row"><?php echo $i; ?></th>
                                         <td><?php echo $row['fullName']; ?></td>
-                                        <th><?php echo $row['serviceTitle']; ?></th>
-                                        <td><?php echo $row['designation']; ?></td>
-                                        <td><?php echo $row['instaLink']; ?></td>
-                                        <td><?php echo $row['fbLink']; ?></td>
+                                        <td class="textWrapped"><?php echo $row['serviceTitle']; ?></td>
+                                        <td class="textWrapped"><?php echo $row['designation']; ?></td>
+                                        <td class="textWrapped"><?php echo $row['instaLink']; ?></td>
+                                        <td class="textWrapped"><?php echo $row['fbLink']; ?></td>
                                         <td>
                                             <div class="profile-pic">
                                                 <img src="<?php echo $row['employeePic']; ?>" alt="Employee Picture">
                                             </div>
                                         </td>
 
-                                        <td><a href="serviceUpdate.php?id=<?php echo $row['employeeID']; ?>">
+                                        <td><a href="employeeUpdate.php?id=<?php echo $row['employeeID']; ?>">
                                                 Update
                                             </a>
                                         </td>

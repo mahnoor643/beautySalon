@@ -1,35 +1,44 @@
 <?php
+$id=$_GET['id'];
 require "./assets/header.php";
 require "../assets/conn.php";
 
-// Add Service
+//selecting previous data
+$sql2="SELECT * FROM employee WHERE employeeID='$id'";
+$result2 = mysqli_query($conn, $sql2);
+$data2 = mysqli_fetch_assoc($result2);
+
+// Update Employee
 if (isset($_POST['submit'])) {
     $name=$_POST['fullName'];
     $service = $_POST['service'];
     $designation=$_POST['designation'];
     $insta=$_POST['insta'];
     $fb=$_POST['fb'];
-    $img_tmp = $_FILES['img']['tmp_name'];
-    $img_name = $_FILES['img']['name'];
-    $img_type = $_FILES['img']['type'];
-    $target_folder = "assets/Employees/";
-    $imgPath=$target_folder.$img_name;
+    // $img_tmp = $_FILES['img']['tmp_name'];
+    // $img_name = $_FILES['img']['name'];
+    // $img_type = $_FILES['img']['type'];
+    // $target_folder = "assets/Employees/";
+    // $imgPath=$target_folder.$img_name;
 
-    $allowed_ext = array('png', 'jpeg', 'jpg', 'gif', 'jfif');
-    $ext = explode('.', $img_name);
-    $img_ext = strtolower(end($ext));
-    if (in_array($img_ext, $allowed_ext) == false) {
-        $error[] = "not required extention";
-    }
-    if (empty($error) == true) {
-        $add_img = $target_folder.$img_name;
-        move_uploaded_file($img_tmp, $target_folder . $img_name);
-    }
+    // $allowed_ext = array('png', 'jpeg', 'jpg', 'gif', 'jfif');
+    // $ext = explode('.', $img_name);
+    // $img_ext = strtolower(end($ext));
+    // if (in_array($img_ext, $allowed_ext) == false) {
+    //     $error[] = "not required extention";
+    // }
+    // if (empty($error) == true) {
+    //     $add_img = $target_folder.$img_name;
+    //     move_uploaded_file($img_tmp, $target_folder . $img_name);
+    // }
 
-    $sql = "insert into employee(fullName, serviceID, designation, instaLink, fbLink, employeePic) values ('$name', '$service', '$designation', '$insta', '$fb', '$imgPath')";
+    $sql = "update employee set designation='$designation',serviceID='$service',fullName='$name',instaLink='$insta',fbLink='$fb' where employeeID='$id'";
     $query = mysqli_query($conn, $sql);
     if ($query) {
-        echo "<script>alert('Employee Added Successfully');</script>";
+        echo "<script>
+        window.location.href = 'employees.php';
+        alert('Employee Updated Successfully!');
+    </script>";
     } else {
         echo "Error: ". $sql. "<br>". mysqli_error($conn);
     }
@@ -39,7 +48,7 @@ if (isset($_POST['submit'])) {
 <main id="main" class="main">
 
     <div class="pagetitle">
-        <h1>Employee Add</h1>
+        <h1>Employee Update</h1>
         <!-- <nav>
     <ol class="breadcrumb">
       <li class="breadcrumb-item"><a href="index.html">Home</a></li>
@@ -54,13 +63,13 @@ if (isset($_POST['submit'])) {
 
                 <div class="card">
                     <div class="card-body">
-                        <h5 class="card-title">Add Employee</h5>
+                        <h5 class="card-title">Update Employee</h5>
 
                         <form method="post" enctype="multipart/form-data">
                             <div class="row mb-3">
                                 <label for="inputEmail3" class="col-sm-2 col-form-label">Name</label>
                                 <div class="col-sm-10">
-                                    <input type="text" name="fullName" class="form-control" id="inputText">
+                                    <input type="text" name="fullName" value="<?php echo $data2['fullName']; ?>" class="form-control" id="inputText">
                                 </div>
                             </div>
                             <!-- services -->
@@ -85,31 +94,31 @@ if (isset($_POST['submit'])) {
                             <div class="row mb-3">
                                 <label for="inputEmail3" class="col-sm-2 col-form-label">Designation</label>
                                 <div class="col-sm-10">
-                                    <input type="text" name="designation" class="form-control" id="inputText">
+                                    <input type="text"  value="<?php echo $data2['designation']; ?>"  name="designation" class="form-control" id="inputText">
                                 </div>
                             </div>
                             <div class="row mb-3">
                                 <label for="inputEmail3" class="col-sm-2 col-form-label">Insta</label>
                                 <div class="col-sm-10">
-                                    <input type="text" name="insta" class="form-control" id="inputText">
+                                    <input type="text"  value="<?php echo $data2['instaLink']; ?>"  name="insta" class="form-control" id="inputText">
                                 </div>
                             </div>
                             <div class="row mb-3">
                                 <label for="inputEmail3" class="col-sm-2 col-form-label">FB</label>
                                 <div class="col-sm-10">
-                                    <input type="text" name="fb" class="form-control" id="inputText">
+                                    <input type="text" name="fb"  value="<?php echo $data2['fbLink']; ?>"  class="form-control" id="inputText">
                                 </div>
                             </div>
-                            <div class="row mb-3">
+                            <!-- <div class="row mb-3">
                                 <label for="inputEmail3" class="col-sm-2 col-form-label">Profile pic</label>
                                 <div class="col-sm-10">
                                     <input type="file" name="img" class="form-control" id="inputText">
                                 </div>
-                            </div>
+                            </div> -->
                             <div class="row mb-3">
                                 <div class="col-sm-2"></div>
                                 <div class="col-sm-10">
-                                    <button class="btn-primary btn" name="submit" type="submit">Add</button>
+                                    <button class="btn-primary btn" name="submit" type="submit">Update</button>
                                 </div>
                             </div>
                         </form>
