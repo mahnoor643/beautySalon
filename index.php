@@ -613,7 +613,7 @@ include "./assets/conn.php";
         <h2 class="fw-7 fs-80 font-sec lh-110 color-white mb-48 text-center">INSTAGRAM FEED</h2>
         <div class="d-flex align-items-center flex-wrap space-bootom">
             <div class="img-block">
-                <img src="assets/media/team/card-img-5.png" alt="">
+                <img src="assets\media\InstaFeed\insta-img1.png" alt="">
                 <div class="content text-center">
                     <a href="#" class="mb-16">
                         <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -639,7 +639,7 @@ include "./assets/conn.php";
                 </div>
             </div>
             <div class="img-block">
-                <img src="assets/media/team/card-img-6.png" alt="">
+                <img src="assets\media\InstaFeed\insta-img2.png" alt="">
                 <div class="content text-center">
                     <a href="#" class="mb-16">
                         <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -665,7 +665,7 @@ include "./assets/conn.php";
                 </div>
             </div>
             <div class="img-block">
-                <img src="assets/media/team/card-img-7.png" alt="">
+                <img src="assets\media\InstaFeed\insta-img3.png" alt="">
                 <div class="content text-center">
                     <a href="#" class="mb-16">
                         <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -691,7 +691,7 @@ include "./assets/conn.php";
                 </div>
             </div>
             <div class="img-block">
-                <img src="assets/media/team/card-img-8.png" alt="">
+                <img src="assets\media\InstaFeed\insta-img4.png" alt="">
                 <div class="content text-center">
                     <a href="#" class="mb-16">
                         <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -717,7 +717,7 @@ include "./assets/conn.php";
                 </div>
             </div>
             <div class="img-block">
-                <img src="assets/media/team/card-img-9.png" alt="">
+                <img src="assets\media\InstaFeed\insta-img5.png" alt="">
                 <div class="content text-center">
                     <a href="#" class="mb-16">
                         <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -743,7 +743,7 @@ include "./assets/conn.php";
                 </div>
             </div>
             <div class="img-block">
-                <img src="assets/media/team/card-img-10.png" alt="">
+                <img src="assets\media\InstaFeed\insta-img6.png" alt="">
                 <div class="content text-center">
                     <a href="#" class="mb-16">
                         <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -769,7 +769,7 @@ include "./assets/conn.php";
                 </div>
             </div>
             <div class="img-block">
-                <img src="assets/media/team/card-img-11.png" alt="">
+                <img src="assets\media\InstaFeed\insta-img7.png" alt="">
                 <div class="content text-center">
                     <a href="#" class="mb-16">
                         <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -795,7 +795,7 @@ include "./assets/conn.php";
                 </div>
             </div>
             <div class="img-block">
-                <img src="assets/media/team/card-img-12.png" alt="">
+                <img src="assets\media\InstaFeed\insta-img8.png" alt="">
                 <div class="content text-center">
                     <a href="#" class="mb-16">
                         <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -821,7 +821,7 @@ include "./assets/conn.php";
                 </div>
             </div>
             <div class="img-block d-md-block d-none">
-                <img src="assets/media/team/card-img-13.png" alt="">
+                <img src="assets\media\InstaFeed\insta-img9.png" alt="">
                 <div class="content text-center">
                     <a href="#" class="mb-16">
                         <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
