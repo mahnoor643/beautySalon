@@ -1,37 +1,44 @@
 <?php
-include "assets/required/_header.php";
-include "./assets/conn.php";
+include "./assets/required/_header.php";
+require "./assets/conn.php";
 ?>
 
 <!-- banner Area end -->
-<section class="banner">
+<section class="inner-banner">
     <div class="container">
-        <h5 class="fw-7 fs-21 lh-140 color-white m-0">WE ARE HERE </h5>
-        <h4 class="fw-7 fs-80 lh-110 color-white mb-8">TRIM & STYLE </h4>
-        <h2 class="fw-7 title color-primary font-sec lh-100">YOU</h2>
-        <p class="fs-21 color-gray-3 lh-140">At Trim & Style, we are dedicated to providing<br> exceptional
-            grooming and styling servicesg<br> tailored to your unique preferences. Let’s go! </p>
-        <button class="barber-btn modal-popup">Book Appointment</button>
+        <div class="text-center">
+            <h2 class="fw-7 fs-105 lh-120 color-white mb-16">ABOUT US</h2>
+            <ul class="breadcrumb">
+                <li>
+                    <a href="index-2.html">Home</a>
+                </li>
+                <li>
+                    <a href="about.html" class="active">About</a>
+                </li>
+            </ul>
+
+        </div>
     </div>
 </section>
 <!-- banner Area end -->
+
 <!-- about Area start -->
-<section class="about bg-dark pt-100">
+<section class="about bg-dark pt-100 pb-100">
     <div class="container">
         <div class="row">
             <div class="col-xxl-5 col-xl-6 col-lg-7 col-md-8 mb-24 mb-lg-0">
                 <h2 class="fw-7 fs-80 lh-110 color-white font-sec mb-16">ABOUT US</h2>
-                <p class="color-gray-3 lh-150 mb-96">At Trim & Style, we are dedicated to providing
-                    exceptional grooming and styling services tailored to your unique preferences. Step into
-                    our modern and inviting space, where our skilled barbers combine their expertise with
-                    the latest techniques to deliver top-notch results. </p>
+                <p class="color-gray-3 lh-150 mb-96">At Trim & Style, we are dedicated to providing exceptional grooming
+                    and styling services tailored to your unique preferences. Step into our modern and inviting space,
+                    where our skilled barbers combine their expertise with the latest techniques to deliver top-notch
+                    results. </p>
                 <h4 class="fw-7 fs-36 lh-110 font-sec color-white mb-16">HISTORY</h4>
                 <div class="text-rotate">
                     <h6 class="fs-36">1995</h6>
-                    <p class="light-text">Established in 1995, Trim & Style has been a trusted destination
-                        for exceptional grooming and styling services for over two decades. With a rich
-                        history rooted in the art of barbering, we have cultivated a reputation for
-                        delivering top-quality results and customer satisfaction.</p>
+                    <p class="light-text">Established in 1995, Trim & Style has been a trusted destination for
+                        exceptional grooming and styling services for over two decades. With a rich history rooted in
+                        the art of barbering, we have cultivated a reputation for delivering top-quality results and
+                        customer satisfaction.</p>
                 </div>
                 <a href="about.html" class="barber-btn">Learn More</a>
             </div>
@@ -55,91 +62,7 @@ include "./assets/conn.php";
     </div>
 </section>
 <!-- about Area end -->
-<!-- service Area start -->
-<section class="service bg-dark pt-100 pb-100">
-    <div class="container">
-        <h2 class="fw-7 fs-80 font-sec lh-110 color-white mb-48 text-center">SERVICES</h2>
-        <div class="row justify-content-between">
-            <?php
-            // Fetch services from database 
-            $sql5 = "SELECT * FROM services LIMIT 4";
-            $result5 = mysqli_query($conn, $sql5);
-            while ($row5 = mysqli_fetch_array($result5)) {
-                ?>
-                <div class="col-lg-5 col-md-6">
-                    <div class="service-block mb-24">
-                        <div class="text-rotate text-start">
-                            <h4><?php echo $row5['serviceTitle']; ?></h4>
-                        </div>
-                        <div class="img-block position-relative overflow-hidden text-end">
-                            <img src="<?php echo $row5['serviceImg']; ?>" alt="">
-                            <div class="content text-start">
-                                <img src="assets/media/icon/dryer-icon.png" class="mb-64 " alt="">
-                                <p class="mb-64"><?php echo $row5['serviceDescription']; ?></p>
-                                <a href="services.html" class="barber-btn">Learn More</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
 
-                <?php
-            }
-            ?>
-            <!-- <div class="col-lg-5 col-md-6">
-                            <div class="service-block mb-24">
-                                <div class="text-rotate text-start">
-                                    <h4>HAIR CUT</h4>
-                                </div>
-                                <div class="img-block position-relative overflow-hidden text-end">
-                                    <img src="assets/media/service/img-2.png" alt="">
-                                    <div class="content text-start">
-                                        <img src="assets/media/icon/scissors-icon.png" class="mb-64 " alt="">
-                                        <p class="mb-64">Our experienced stylists are skilled in creating a wide range
-                                            of hair styles to suit your preferences. Whether you're looking for a trendy
-                                            haircut, a classic updo, or a special occasion hairstyle.</p>
-                                        <a href="services.html" class="barber-btn">Learn More</a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-lg-5 col-md-6">
-                            <div class="service-block mb-24 mb-lg-0 mb-md-0">
-                                <div class="text-rotate text-start">
-                                    <h4>BEARD TRIM</h4>
-                                </div>
-                                <div class="img-block position-relative overflow-hidden text-end">
-                                    <img src="assets/media/service/img-3.png" alt="">
-                                    <div class="content text-start">
-                                        <img src="assets/media/icon/beard-icon.png" class="mb-64 " alt="">
-                                        <p class="mb-64">Our experienced stylists are skilled in creating a wide range
-                                            of hair styles to suit your preferences. Whether you're looking for a trendy
-                                            haircut, a classic updo, or a special occasion hairstyle.</p>
-                                        <a href="services.html" class="barber-btn">Learn More</a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-lg-5 col-md-6">
-                            <div class="service-block">
-                                <div class="text-rotate text-start">
-                                    <h4>HAIR WASH</h4>
-                                </div>
-                                <div class="img-block position-relative overflow-hidden text-end">
-                                    <img src="assets/media/service/img-4.png" alt="">
-                                    <div class="content text-start">
-                                        <img src="assets/media/icon/shower-icon.png" class="mb-64 " alt="">
-                                        <p class="mb-64">Our experienced stylists are skilled in creating a wide range
-                                            of hair styles to suit your preferences. Whether you're looking for a trendy
-                                            haircut, a classic updo, or a special occasion hairstyle.</p>
-                                        <a href="services.html" class="barber-btn">Learn More</a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div> -->
-        </div>
-    </div>
-</section>
-<!-- service Area end -->
 <!-- milestone Area start -->
 <section class="milestone bg-dark">
     <div class="container">
@@ -167,32 +90,33 @@ include "./assets/conn.php";
     </div>
 </section>
 <!-- milestone Area end -->
+
 <!-- team Area start -->
 <section class="team bg-dark pt-100 pb-100">
     <div class="container">
         <h2 class="fw-7 fs-80 font-sec lh-110 color-white mb-48 text-center">OUR TEAM</h2>
         <div class="row">
             <?php
-                $sql12="SELECT * FROM employee LIMIT 4";
-                $result12=mysqli_query($conn,$sql12);
-                while($row12=mysqli_fetch_array($result12)){
-            ?>
-            <div class="col-xl-3 col-md-6">
-                <div class="img-block position-relative overflow-hidden text-end mb-24 mb-xl-0">
-                    <img src="./Admin/<?php echo $row12['employeePic'];?>" class="w-100" alt="">
-                    <div class="content ">
-                        <ul class="social-icon list-unstyled mb-24">
-                            <li>
-                                <a href="<?php echo $row12['instaLink'];?>">
-                                <i class="fab fa-instagram"></i>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="<?php echo $row12['fbLink'];?>">
-                                    <i class="fab fa-facebook-f"></i>
-                                </a>
-                            </li>
-                            <!-- <li>
+            $sql12 = "SELECT * FROM employee LIMIT 4";
+            $result12 = mysqli_query($conn, $sql12);
+            while ($row12 = mysqli_fetch_array($result12)) {
+                ?>
+                <div class="col-xl-3 col-md-6">
+                    <div class="img-block position-relative overflow-hidden text-end mb-24 mb-xl-0">
+                        <img src="./Admin/<?php echo $row12['employeePic']; ?>" class="w-100" alt="">
+                        <div class="content ">
+                            <ul class="social-icon list-unstyled mb-24">
+                                <li>
+                                    <a href="<?php echo $row12['instaLink']; ?>">
+                                        <i class="fab fa-instagram"></i>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="<?php echo $row12['fbLink']; ?>">
+                                        <i class="fab fa-facebook-f"></i>
+                                    </a>
+                                </li>
+                                <!-- <li>
                                 <a href="#">
                                     <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 32"
                                         fill="none">
@@ -202,15 +126,16 @@ include "./assets/conn.php";
                                     </svg>
                                 </a>
                             </li> -->
-                        </ul>
-                        <h4 class="fw-7 fs-21 lh-110 font-sec color-white mb-1 text-center"><?php echo $row12['fullName'];?>
-                        </h4>
-                        <p class="lh-150 color-gray-3 mb-0 text-center"><?php echo $row12['designation'];?></p>
+                            </ul>
+                            <h4 class="fw-7 fs-21 lh-110 font-sec color-white mb-1 text-center">
+                                <?php echo $row12['fullName']; ?>
+                            </h4>
+                            <p class="lh-150 color-gray-3 mb-0 text-center"><?php echo $row12['designation']; ?></p>
+                        </div>
                     </div>
                 </div>
-            </div>
 
-            <?php
+                <?php
             }
             ?>
             <!-- <div class="col-xl-3 col-md-6">
@@ -369,235 +294,7 @@ include "./assets/conn.php";
     </div>
 </section>
 <!-- team Area end -->
-<!-- Pricing Area start -->
-<section class="pricing bg-dark pt-100 pb-100">
-    <div class="container">
-        <h2 class="fw-7 fs-80 font-sec lh-110 color-white mb-48 text-center">GROOM PACKAGES</h2>
-        <div class="row">
-            <?php
-            $sql3 = "select * from packages";
-            $sql3Run = mysqli_query($conn, $sql3);
-            while ($row3 = mysqli_fetch_array($sql3Run)) {
-                ?>
-                <div class="col-lg-4 col-sm-6">
-                    <div class="pricing-block mb-32 mb-lg-0">
-                        <h2 class="title fs-47 fw-7 lh-120 bg-dark-3"><?php echo $row3['packageName']; ?></h2>
-                        <h3 class="price fs-47 fw-7 lh-120 color-primary">$<?php echo $row3['packagePrice']; ?></h3>
 
-                        <ul class="offer-services unstyled">
-                            <?php
-                            $pID = $row3['packageID'];
-                            $sql4 = "select * from packageDeals join serviceExpertise on serviceExpertise.serviceExpertiseID=packageDeals.serviceIDFK where packageID=$pID";
-                            $sql4Run = mysqli_query($conn, $sql4);
-                            while ($row4 = mysqli_fetch_array($sql4Run)) {
-                                ?>
-                                <li><?php echo $row4['serviceExperty']; ?></li>
-                            <?php } ?>
-                            <!-- <li>Face Bleach</li>
-                                    <li>Neck Bleach</li>
-                                    <li>Hand Bleach</li>
-                                    <li>Black Head Back</li>
-                                    <li>Professional Hair Cut</li>
-                                    <li>Quick Manicure</li> -->
-                        </ul>
-                        <button class="barber-btn modal-popup">Book Now</button>
-                    </div>
-                </div>
-            <?php } ?>
-            <!-- <div class="col-lg-4 col-sm-6">
-                            <div class="pricing-block mb-32 mb-lg-0">
-                                <h2 class="title fs-47 fw-7 lh-120 bg-dark-3">DEAL 2</h2>
-                                <h3 class="price fs-47 fw-7 lh-120 color-primary">$400</h3>
-                                <ul class="offer-services unstyled">
-                                    <li>Dermacos Facial</li>
-                                    <li>Face Bleach</li>
-                                    <li>Neck Bleach</li>
-                                    <li>Hand Bleach</li>
-                                    <li>Black Head Back</li>
-                                    <li>Professional Hair Cut</li>
-                                    <li>Quick Manicure</li>
-                                </ul>
-                                <button class="barber-btn modal-popup">Book Now</button>
-                            </div>
-                        </div>
-                        <div class="col-lg-4 col-sm-6 ">
-                            <div class="pricing-block">
-                                <h2 class="title fs-47 fw-7 lh-120 bg-dark-3">DEAL 3</h2>
-                                <h3 class="price fs-47 fw-7 lh-120 color-primary">$500</h3>
-                                <ul class="offer-services unstyled">
-                                    <li>Dermacos Facial</li>
-                                    <li>Face Bleach</li>
-                                    <li>Neck Bleach</li>
-                                    <li>Hand Bleach</li>
-                                    <li>Black Head Back</li>
-                                    <li>Professional Hair Cut</li>
-                                    <li>Quick Manicure</li>
-                                </ul>
-                                <button class="barber-btn modal-popup">Book Now</button>
-                            </div>
-                        </div> -->
-        </div>
-    </div>
-</section>
-<!-- Pricing Area end -->
-
-<!-- appointment Area start -->
-<section class="appoinment bg-dark-3 pt-100 pb-100">
-    <div class="container">
-        <h2 class="fw-7 fs-80 font-sec lh-110 color-white mb-48 text-center">BOOK APPOINMENT</h2>
-        <div class="row">
-            <div class="col-lg-4 offset-lg-1 ">
-                <div class="content mb-24 mb-lg-0">
-                    <a href="tel:123" class="social-link mb-32"><i class="fal fa-phone-alt"></i> +1 233 898
-                        0897</a>
-                    <a href="mailto:email@example.com" class="social-link mb-32"><i class="fal fa-envelope"></i>
-                        email@example.com</a>
-                    <a class="social-link mb-32"> <i class="fal fa-map-marker-alt"></i>123 Main Street,
-                        Anytown, USA.</a>
-                    <h2 class="fw-7 fs-36 lh-110 font-sec color-white mb-24">OPENING HOURS</h2>
-                    <div class="d-flex align-items-center justify-content-start  mb-16">
-                        <h5 class="fw-4 fs-21 lh-140 color-white m-0 me-4">Mon–Fri</h5>
-                        <p class="fw-7 fs-21 lh-140 color-primary m-0">9 AM – 7 PM</p>
-                    </div>
-                    <div class="d-flex align-items-center justify-content-start">
-                        <h5 class="fw-4 fs-21 lh-140 color-white m-0 me-4">Sat–Sun</h5>
-                        <p class="fw-7 fs-21 lh-140 color-primary m-0">9 AM – 5 PM</p>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-7">
-                <?php
-                if (isset($_POST['submit'])) {
-                    $name = $_POST['name'];
-                    $email = $_POST['email'];
-                    $phone = $_POST['phone'];
-                    $date = $_POST['date'];
-                    $service = $_POST['service-name'];
-                    $employee = $_POST['employee'];
-                    $sql11 = "SELECT * FROM user where email='$email'";
-                    $sql11Run = mysqli_query($conn, $sql11);
-                    if (mysqli_num_rows($sql11Run) > 0) {
-                        fetchDetails($email, $date, $service, $employee);
-                    } else {
-                        $sql8 = "insert into user(fullName,email,phoneNo,role) values('$name', '$email', '$phone', 'Client')";
-                        $sql8Run = mysqli_query($conn, $sql8);
-                        if (!$sql8Run) {
-                            die(mysqli_error());
-                        }
-                        if ($sql8Run) {
-                            fetchDetails($email, $date, $service, $employee);
-                        } else {
-                            echo "<script>alert('Account is aready created with this mail')</script>";
-                        };
-                    }
-
-                }
-                
-
-                function fetchDetails($email, $date, $service, $employee)
-                {
-                    global $conn;
-                    $sql9 = "SELECT * FROM user where email='$email'";
-                    $sql9Run = mysqli_query($conn, $sql9);
-                    if (!$sql9Run) {
-                        die(mysqli_error());
-                    }
-                    $row9 = mysqli_fetch_array($sql9Run);
-                    $userId = $row9['userID'];
-                    $fullName = $row9['fullName'];
-                    $phone = $row9['phoneNo'];
-                    $sql10 = "insert into appointment(fullName,email,phoneNo,Date,serviceID,employeeID,packageID,userID) 
-                                values('$fullName', '$email', '$phone', '$date', '$service', '$employee',NULL, '$userId')";
-                    $sql10Run = mysqli_query($conn, $sql10);
-                    if (!$sql10Run) {
-                        die(mysqli_error());
-                    }
-                    if ($sql10Run) {
-                        echo "<script>alert('Appointment has been booked successfully')</script>";
-                    } else {
-                        echo "<script>alert('Failed to book appointment')</script>";
-                    }
-                    ;
-                }
-                ?>
-                <form method="post">
-                    <div class="row">
-                        <div class="col-lg-6 col-12">
-                            <div class="form-group mb-24">
-                                <input type="text" class="form-control" id="name" name="name" required
-                                    placeholder="Your Name">
-                            </div>
-                        </div>
-                        <div class="col-lg-6 col-12">
-                            <div class="form-group mb-24">
-                                <input type="text" class="form-control" id="email" name="email" placeholder="Email">
-                                <small id="email-error" style="color:red; display:none;">
-                                    Email is not valid
-                                </small>
-                            </div>
-                        </div>
-                        <div class="col-lg-6 col-12">
-                            <div class="form-group mb-24">
-                                <input type="tel" class="form-control" id="phone" name="phone"
-                                    placeholder="Phone Number" oninput="validatePhone(this)">
-                                <small id="phone-error" style="color: red; display: none;">Phone number must be exactly
-                                    11 digits.</small>
-                            </div>
-                        </div>
-                        <div class="col-lg-6 col-12">
-                            <div class="form-group mb-24">
-                                <input type="date" name="date" id="checkIn" class="form-control date_from" required
-                                    placeholder="Date">
-                            </div>
-                        </div>
-                        <div class="col-lg-6 col-12">
-                            <div class="form-group mb-24">
-                                <select class="form-selector" name="service-name" required>
-                                    <option value="1" disabled selected>Select Service</option>
-                                    <?php
-                                    $sql6 = "select * from services";
-                                    $sql6Run = mysqli_query($conn, $sql6);
-                                    while ($row6 = mysqli_fetch_array($sql6Run)) {
-                                        ?>
-                                        <option value="<?php echo $row6['serviceID']; ?>">
-                                            <?php echo $row6['serviceTitle']; ?>
-                                        </option>
-                                    <?php } ?>
-                                    <!-- <option value="hair cut">HAIR CUT</option>
-                                                <option value="beard trim">BEARD TRIM</option>
-                                                <option value="hair wash">HAIR WASH</option> -->
-                                </select>
-                            </div>
-                        </div>
-                        <div class="col-lg-6 col-12">
-                            <div class="form-group mb-48">
-                                <select class="form-selector" name="employee">
-                                    <option value="1" disabled selected>Select Barber</option>
-                                    <?php
-                                    $sql7 = "select * from employee";
-                                    $sql7Run = mysqli_query($conn, $sql7);
-                                    while ($row7 = mysqli_fetch_array($sql7Run)) {
-                                        ?>
-                                        <option value="<?php echo $row7['employeeID']; ?>"><?php echo $row7['fullName']; ?>
-                                        </option>
-                                    <?php } ?>
-                                    <!-- <option value="dapper">Dapper Barber</option>
-                                                <option value="gentelman">Gentleman's Barber</option>
-                                                <option value="barber">Barbers Den</option> -->
-                                </select>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="text-center">
-                        <button type="submit" name="submit" class="barber-btn">Book Appointment</button>
-                    </div>
-                    <div id="message" class="alert-msg"></div>
-                </form>
-            </div>
-        </div>
-    </div>
-</section>
-<!-- appointment Area end -->
 <!-- Instagram Feed Area start -->
 <section class="instagram-feed bg-dark pt-100">
     <div class="container">
@@ -850,7 +547,7 @@ include "./assets/conn.php";
         <div class="row justify-content-center">
             <div class="col-lg-5">
                 <div class="customer-feed mb-32">
-                    <img src="sm-img1.png" class="costumer-logo" alt="">
+                    <img src="assets/media/sm-img1.png" class="costumer-logo" alt="">
                     <div class="content">
                         <h4 class="fw-7 fs-21 color-white lh-110 font-sec mb-16">Fresco Miller</h4>
                         <p class="lh-150 color-gray-3 m-0">I've been coming to Trim & Style for years, and they never
@@ -861,7 +558,7 @@ include "./assets/conn.php";
             </div>
             <div class="col-lg-5">
                 <div class="customer-feed mb-32">
-                    <img src="sm-img2.png" class="costumer-logo" alt="">
+                    <img src="assets/media/sm-img2.png" class="costumer-logo" alt="">
                     <div class="content">
                         <h4 class="fw-7 fs-21 color-white lh-110 font-sec mb-16">Dave Walker</h4>
                         <p class="lh-150 color-gray-3 m-0">I had an amazing experience at Trim & Style! The barber was
@@ -872,7 +569,7 @@ include "./assets/conn.php";
             </div>
             <div class="col-lg-5">
                 <div class="customer-feed mb-32 mb-lg-0">
-                    <img src="sm-img3.png" class="costumer-logo" alt="">
+                    <img src="assets/media/sm-img3.png" class="costumer-logo" alt="">
                     <div class="content">
                         <h4 class="fw-7 fs-21 color-white lh-110 font-sec mb-16">Austin Silco</h4>
                         <p class="lh-150 color-gray-3 m-0">I recently tried Trim & Style for the first time. The
@@ -883,7 +580,7 @@ include "./assets/conn.php";
             </div>
             <div class="col-lg-5">
                 <div class="customer-feed">
-                    <img src="sm-img4.png" class="costumer-logo" alt="">
+                    <img src="assets/media/sm-img3.png" class="costumer-logo" alt="">
                     <div class="content">
                         <h4 class="fw-7 fs-21 color-white lh-110 font-sec mb-16">Jeager Milka</h4>
                         <p class="lh-150 color-gray-3 m-0">I visited Trim & Style for a hair styling session before a
@@ -897,4 +594,7 @@ include "./assets/conn.php";
 </section>
 <!-- feedback Area end -->
 
-<?php include "assets/required/_footer.php" ?>
+
+<?php
+include "./assets/required/_footer.php";
+?>

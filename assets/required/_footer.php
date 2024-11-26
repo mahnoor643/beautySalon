@@ -3,7 +3,7 @@
     <div class="container">
         <div class="logo mb-16">
             <a href="index-2.html">
-                <img src="../media/logo.png" alt="">
+                <img src="assets/media/logo.png" style="height:40px !important; left: 10000px !important;" alt="">
             </a>
         </div>
         <span class="me-3">SINCE</span>

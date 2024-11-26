@@ -55,7 +55,9 @@ include "../conn.php";
                 <div class="container">
                     <nav class="navbar navbar-expand-xl align-items-xl-center align-items-start p-0">
                         <div class="col-xl-4 ">
-                            <a class="navbar-brand" href="index-2.html"><img alt="" src="assets/media/logo.png"></a>
+                        <a href="index-2.html"><img alt="" src="assets/media/new.png" class="img-fluid" style="height:40px !important; left: 10000px !important;"></a>
+    
+                        <!-- <a class="navbar-brand" href="index-2.html"><img alt="" src="assets/media/logo.png" style="left: 0px !important;"></a> -->
                         </div>
                         <div class="col-xl-4 text-end">
                             <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
