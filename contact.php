@@ -46,7 +46,7 @@ if(isset($_POST['submit'])){
                     <a href="tel:123" class="social-link mb-32 fs-21"><i class="fal fa-phone-alt"></i> +1 233 898
                         0897</a>
                     <a href="mailto:email@example.com" class="social-link mb-32 fs-21"><i class="fal fa-envelope"></i>
-                        email@example.com</a>
+                        rosasalon.com</a>
                     <a class="social-link fs-21 mb-64"> <i class="fal fa-map-marker-alt"></i>123 Main Street, Anytown,
                         USA.</a>
 
