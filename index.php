@@ -572,7 +572,7 @@ include "./assets/conn.php";
                         <div class="col-lg-6 col-12">
                             <div class="form-group mb-48">
                                 <select class="form-selector" name="employee">
-                                    <option value="1" disabled selected>Select Barber</option>
+                                    <option value="1" disabled selected>Select Expert</option>
                                     <?php
                                     $sql7 = "select * from employee";
                                     $sql7Run = mysqli_query($conn, $sql7);
