@@ -28,17 +28,18 @@ require "./assets/conn.php";
         <div class="row">
             <div class="col-xxl-5 col-xl-6 col-lg-7 col-md-8 mb-24 mb-lg-0">
                 <h2 class="fw-7 fs-80 lh-110 color-white font-sec mb-16">ABOUT US</h2>
-                <p class="color-gray-3 lh-150 mb-96">At Trim & Style, we are dedicated to providing exceptional grooming
-                    and styling services tailored to your unique preferences. Step into our modern and inviting space,
-                    where our skilled barbers combine their expertise with the latest techniques to deliver top-notch
-                    results. </p>
-                <h4 class="fw-7 fs-36 lh-110 font-sec color-white mb-16">HISTORY</h4>
+                <p class="color-gray-3 lh-150 mb-96">At ROSA Salon , we are committed to enhancing your natural
+                     beauty with exceptional grooming and styling services. Step into our elegant 
+                     and relaxing space, where our skilled professionals use advanced techniques 
+                     to deliver results that match your unique style and personality. </p>
+                <h4 class="fw-7 fs-36 lh-110 font-sec color-white mb-16">OUR JOURNEY</h4>
                 <div class="text-rotate">
-                    <h6 class="fs-36">1995</h6>
-                    <p class="light-text">Established in 1995, Trim & Style has been a trusted destination for
-                        exceptional grooming and styling services for over two decades. With a rich history rooted in
-                        the art of barbering, we have cultivated a reputation for delivering top-quality results and
-                        customer satisfaction.</p>
+                    <br>
+                    <h6 class="fs-36">2000</h6>
+                    <p class="light-text">Since opening our doors in 2000, ROSA Salon 
+                        has been a trusted name in beauty and self-care. With years of expertise, 
+                        a passion for creativity, and a focus on client satisfaction, 
+                        we have built a legacy of delivering outstanding services that make every visit memorable.</p>
                 </div>
                 <a href="about.php" class="barber-btn">Learn More</a>
             </div>
@@ -323,7 +324,7 @@ require "./assets/conn.php";
                             </defs>
                         </svg>
                     </a>
-                    <h5 class="fw-4 fs-21 lh-140 color-white m-0">@trimeandstyle</h5>
+                    <h5 class="fw-4 fs-21 lh-140 color-white m-0">@rosasalon</h5>
                 </div>
             </div>
             <div class="img-block">
@@ -349,7 +350,7 @@ require "./assets/conn.php";
                             </defs>
                         </svg>
                     </a>
-                    <h5 class="fw-4 fs-21 lh-140 color-white m-0">@trimeandstyle</h5>
+                    <h5 class="fw-4 fs-21 lh-140 color-white m-0">@rosasalon</h5>
                 </div>
             </div>
             <div class="img-block">
@@ -375,7 +376,7 @@ require "./assets/conn.php";
                             </defs>
                         </svg>
                     </a>
-                    <h5 class="fw-4 fs-21 lh-140 color-white m-0">@trimeandstyle</h5>
+                    <h5 class="fw-4 fs-21 lh-140 color-white m-0">@rosasalon</h5>
                 </div>
             </div>
             <div class="img-block">
@@ -401,7 +402,7 @@ require "./assets/conn.php";
                             </defs>
                         </svg>
                     </a>
-                    <h5 class="fw-4 fs-21 lh-140 color-white m-0">@trimeandstyle</h5>
+                    <h5 class="fw-4 fs-21 lh-140 color-white m-0">@rosasalon</h5>
                 </div>
             </div>
             <div class="img-block">
@@ -427,7 +428,7 @@ require "./assets/conn.php";
                             </defs>
                         </svg>
                     </a>
-                    <h5 class="fw-4 fs-21 lh-140 color-white m-0">@trimeandstyle</h5>
+                    <h5 class="fw-4 fs-21 lh-140 color-white m-0">@rosasalon</h5>
                 </div>
             </div>
             <div class="img-block">
@@ -453,7 +454,7 @@ require "./assets/conn.php";
                             </defs>
                         </svg>
                     </a>
-                    <h5 class="fw-4 fs-21 lh-140 color-white m-0">@trimeandstyle</h5>
+                    <h5 class="fw-4 fs-21 lh-140 color-white m-0">@rosasalon</h5>
                 </div>
             </div>
             <div class="img-block">
@@ -479,7 +480,7 @@ require "./assets/conn.php";
                             </defs>
                         </svg>
                     </a>
-                    <h5 class="fw-4 fs-21 lh-140 color-white m-0">@trimeandstyle</h5>
+                    <h5 class="fw-4 fs-21 lh-140 color-white m-0">@rosasalon</h5>
                 </div>
             </div>
             <div class="img-block">
@@ -505,7 +506,7 @@ require "./assets/conn.php";
                             </defs>
                         </svg>
                     </a>
-                    <h5 class="fw-4 fs-21 lh-140 color-white m-0">@trimeandstyle</h5>
+                    <h5 class="fw-4 fs-21 lh-140 color-white m-0">@rosasalon</h5>
                 </div>
             </div>
             <div class="img-block d-md-block d-none">
@@ -531,7 +532,7 @@ require "./assets/conn.php";
                             </defs>
                         </svg>
                     </a>
-                    <h5 class="fw-4 fs-21 lh-140 color-white m-0">@trimeandstyle</h5>
+                    <h5 class="fw-4 fs-21 lh-140 color-white m-0">@rosasalon</h5>
                 </div>
             </div>
         </div>

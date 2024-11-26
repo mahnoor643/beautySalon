@@ -7,7 +7,7 @@
             </a>
         </div>
         <span class="me-3">SINCE</span>
-        <span>1995</span>
+        <span>2000</span>
         <ul class="footer-link list-unstyled">
             <li>
                 <a href="index.php" class="active">Home</a>
@@ -53,7 +53,7 @@
                 </a>
             </li>
         </ul>
-        <p class="lh-150 color-white mb-0">©2024 All rights are reserved by <a href="index-2.html">trimStyle</a></p>
+        <p class="lh-150 color-white mb-0">©2024 All rights are reserved by <a href="index-2.html">rosasalon</a></p>
     </div>
 </footer>
 <!-- footer Area end -->
