@@ -55,7 +55,7 @@ include "../conn.php";
                 <div class="container">
                     <nav class="navbar navbar-expand-xl align-items-xl-center align-items-start p-0">
                         <div class="col-xl-4 ">
-                        <a href="index-2.html"><img alt="" src="assets/media/new.png" class="img-fluid" style="height:40px !important; left: 10000px !important;"></a>
+                        <a href="index.php"><img alt="" src="assets/media/new.png" class="img-fluid" style="height:40px !important; left: 10000px !important;"></a>
     
                         <!-- <a class="navbar-brand" href="index-2.html"><img alt="" src="assets/media/logo.png" style="left: 0px !important;"></a> -->
                         </div>
@@ -67,16 +67,16 @@ include "../conn.php";
                             <div class="collapse navbar-collapse justify-content-center text-start" id="mynavbar">
                                 <ul class="navbar-nav mainmenu m-0">
                                     <li class="menu-item-has-children">
-                                        <a href="index-2.html" class="active">Home</a>
+                                        <a href="index.php" class="active">Home</a>
                                     </li>
                                     <li class="menu-item-has-children">
-                                        <a href="about.html">About</a>
+                                        <a href="about.php">About</a>
                                     </li>
                                     <li class="menu-item-has-children">
-                                        <a href="services.html">Services</a>
+                                        <a href="services.php">Services</a>
                                     </li>
                                     <li class="menu-item-has-children">
-                                        <a href="contact.html">Contact</a>
+                                        <a href="contact.php">Contact</a>
                                     </li>
                                 </ul>
                             </div>

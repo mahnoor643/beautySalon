@@ -3,23 +3,23 @@
     <div class="container">
         <div class="logo mb-16">
             <a href="index-2.html">
-                <img src="assets/media/logo.png" style="height:40px !important; left: 10000px !important;" alt="">
+                <img src="assets/media/new.png" style="height:40px !important; left: 10000px !important;" alt="">
             </a>
         </div>
         <span class="me-3">SINCE</span>
         <span>1995</span>
         <ul class="footer-link list-unstyled">
             <li>
-                <a href="index-2.html" class="active">Home</a>
+                <a href="index.php" class="active">Home</a>
             </li>
             <li>
-                <a href="about.html">About</a>
+                <a href="about.php">About</a>
             </li>
             <li>
-                <a href="services.html">Services</a>
+                <a href="services.php">Services</a>
             </li>
             <li>
-                <a href="contact.html">Contact</a>
+                <a href="contact.php">Contact</a>
             </li>
         </ul>
         <ul class="social-icon list-unstyled mb-64">
@@ -69,60 +69,135 @@
                 </div>
                 <div class="content bg-dark-3">
                     <h2 class="fw-7 fs-36 font-sec lh-110 color-white mb-48 text-center">APPOINTMENT FORM</h2>
-                    <form method="post" action="https://uiparadox.co.uk/templates/trimStyle/v3/index.html"
-                        class="modal-form">
+                    <?php
+                    if (isset($_POST['submit'])) {
+                        $name = $_POST['name'];
+                        $email = $_POST['email'];
+                        $phone = $_POST['phone'];
+                        $date = $_POST['date'];
+                        $service = $_POST['service-name'];
+                        $employee = $_POST['employee'];
+                        $sql11 = "SELECT * FROM user where email='$email'";
+                        $sql11Run = mysqli_query($conn, $sql11);
+                        if (mysqli_num_rows($sql11Run) > 0) {
+                            fetchDetails($email, $date, $service, $employee);
+                        } else {
+                            $sql8 = "insert into user(fullName,email,phoneNo,role) values('$name', '$email', '$phone', 'Client')";
+                            $sql8Run = mysqli_query($conn, $sql8);
+                            if (!$sql8Run) {
+                                die(mysqli_error());
+                            }
+                            if ($sql8Run) {
+                                fetchDetails($email, $date, $service, $employee);
+                            } else {
+                                echo "<script>alert('Account is aready created with this mail')</script>";
+                            }
+                            ;
+                        }
+
+                    }
+
+
+                    function fetchDetails($email, $date, $service, $employee)
+                    {
+                        global $conn;
+                        $sql9 = "SELECT * FROM user where email='$email'";
+                        $sql9Run = mysqli_query($conn, $sql9);
+                        if (!$sql9Run) {
+                            die(mysqli_error());
+                        }
+                        $row9 = mysqli_fetch_array($sql9Run);
+                        $userId = $row9['userID'];
+                        $fullName = $row9['fullName'];
+                        $phone = $row9['phoneNo'];
+                        $sql10 = "insert into appointment(fullName,email,phoneNo,Date,serviceID,employeeID,packageID,userID) 
+                                values('$fullName', '$email', '$phone', '$date', '$service', '$employee',NULL, '$userId')";
+                        $sql10Run = mysqli_query($conn, $sql10);
+                        if (!$sql10Run) {
+                            die(mysqli_error());
+                        }
+                        if ($sql10Run) {
+                            echo "<script>alert('Appointment has been booked successfully')</script>";
+                        } else {
+                            echo "<script>alert('Failed to book appointment')</script>";
+                        }
+                        ;
+                    }
+                    ?>
+                    <form method="post">
                         <div class="row">
                             <div class="col-lg-6 col-12">
                                 <div class="form-group mb-24">
-                                    <input type="text" class="form-control" id="name2" name="name2" required
+                                    <input type="text" class="form-control" id="name" name="name" required
                                         placeholder="Your Name">
                                 </div>
                             </div>
                             <div class="col-lg-6 col-12">
                                 <div class="form-group mb-24">
-                                    <input type="email" class="form-control" id="email2" name="email2" required
-                                        placeholder="Email">
+                                    <input type="text" class="form-control" id="email" name="email" placeholder="Email">
+                                    <small id="email-error" style="color:red; display:none;">
+                                        Email is not valid
+                                    </small>
                                 </div>
                             </div>
                             <div class="col-lg-6 col-12">
                                 <div class="form-group mb-24">
-                                    <input type="tel" class="form-control" id="phone2" name="phone2" required
-                                        placeholder="Phone Number">
+                                    <input type="tel" class="form-control" id="phone" name="phone"
+                                        placeholder="Phone Number" oninput="validatePhone(this)">
+                                    <small id="phone-error" style="color: red; display: none;">Phone number must be
+                                        exactly
+                                        11 digits.</small>
                                 </div>
                             </div>
                             <div class="col-lg-6 col-12">
                                 <div class="form-group mb-24">
-                                    <input type="text" name="date" id="checkIn" class="form-control date_from" required
+                                    <input type="date" name="date" id="checkIn" class="form-control date_from" required
                                         placeholder="Date">
                                 </div>
                             </div>
                             <div class="col-lg-6 col-12">
                                 <div class="form-group mb-24">
                                     <select class="form-selector" name="service-name" required>
-                                        <option value="" disabled selected>Select Service</option>
-                                        <option value="hair style">HAIR STYLING</option>
-                                        <option value="hair cut">HAIR CUT</option>
-                                        <option value="beard trim">BEARD TRIM</option>
-                                        <option value="hair wash">HAIR WASH</option>
+                                        <option value="1" disabled selected>Select Service</option>
+                                        <?php
+                                        $sql6 = "select * from services";
+                                        $sql6Run = mysqli_query($conn, $sql6);
+                                        while ($row6 = mysqli_fetch_array($sql6Run)) {
+                                            ?>
+                                            <option value="<?php echo $row6['serviceID']; ?>">
+                                                <?php echo $row6['serviceTitle']; ?>
+                                            </option>
+                                        <?php } ?>
+                                        <!-- <option value="hair cut">HAIR CUT</option>
+                                                <option value="beard trim">BEARD TRIM</option>
+                                                <option value="hair wash">HAIR WASH</option> -->
                                     </select>
                                 </div>
                             </div>
                             <div class="col-lg-6 col-12">
                                 <div class="form-group mb-48">
-                                    <select class="form-selector" name="barber-name" required>
-                                        <option value="" disabled selected>Select Barber</option>
-                                        <option value="kenji">Kenji Malone</option>
-                                        <option value="dapper">Dapper Barber</option>
-                                        <option value="gentelman">Gentleman's Barber</option>
-                                        <option value="barber">Barbers Den</option>
+                                    <select class="form-selector" name="employee">
+                                        <option value="1" disabled selected>Select Barber</option>
+                                        <?php
+                                        $sql7 = "select * from employee";
+                                        $sql7Run = mysqli_query($conn, $sql7);
+                                        while ($row7 = mysqli_fetch_array($sql7Run)) {
+                                            ?>
+                                            <option value="<?php echo $row7['employeeID']; ?>">
+                                                <?php echo $row7['fullName']; ?>
+                                            </option>
+                                        <?php } ?>
+                                        <!-- <option value="dapper">Dapper Barber</option>
+                                                <option value="gentelman">Gentleman's Barber</option>
+                                                <option value="barber">Barbers Den</option> -->
                                     </select>
                                 </div>
                             </div>
                         </div>
                         <div class="text-center">
-                            <button type="submit" class="barber-btn">Book Appointment</button>
+                            <button type="submit" name="submit" class="barber-btn">Book Appointment</button>
                         </div>
-                        <div id="message2" class="alert-msg"></div>
+                        <div id="message" class="alert-msg"></div>
                     </form>
                 </div>
             </div>
@@ -152,7 +227,7 @@
     function validatePhone(input) {
         // Allow only numbers
         input.value = input.value.replace(/[^0-9]/g, '');
-        
+
         // Check if input has exactly 11 digits on blur (or any trigger)
         const errorElement = document.getElementById('phone-error');
         if (input.value.length === 11) {
@@ -178,18 +253,18 @@
         //for phone number validation
         const phoneInput = document.getElementById('phone');
         const errorElement = document.getElementById('phone-error');
-       
+
         // const emailInput = document.getElementById('email');
         // const emailError = document.getElementById('email-error');
         // const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-        
+
         // if (!emailPattern.test(emailInput.value)) {
         //     e.preventDefault(); // Prevent form submission
         //     emailError.style.display = 'block'; // Show error
         // } else {
         //     emailError.style.display = 'none'; // Hide error
         // }
-        
+
         if (phoneInput.value.length !== 11) {
             e.preventDefault(); // Prevent form submission
             errorElement.style.display = 'block'; // Show error
@@ -198,7 +273,7 @@
         }
     });
 
-    
+
 </script>
 
 </body>

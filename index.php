@@ -33,7 +33,7 @@ include "./assets/conn.php";
                         history rooted in the art of barbering, we have cultivated a reputation for
                         delivering top-quality results and customer satisfaction.</p>
                 </div>
-                <a href="about.html" class="barber-btn">Learn More</a>
+                <a href="about.php" class="barber-btn">Learn More</a>
             </div>
             <div class="col-xxl-7 col-xl-6 col-12">
                 <div class="img-block">
@@ -76,7 +76,7 @@ include "./assets/conn.php";
                             <div class="content text-start">
                                 <img src="assets/media/icon/dryer-icon.png" class="mb-64 " alt="">
                                 <p class="mb-64"><?php echo $row5['serviceDescription']; ?></p>
-                                <a href="services.html" class="barber-btn">Learn More</a>
+                                <a href="services.php" class="barber-btn">Learn More</a>
                             </div>
                         </div>
                     </div>
@@ -444,7 +444,7 @@ include "./assets/conn.php";
 <!-- appointment Area start -->
 <section class="appoinment bg-dark-3 pt-100 pb-100">
     <div class="container">
-        <h2 class="fw-7 fs-80 font-sec lh-110 color-white mb-48 text-center">BOOK APPOINMENT</h2>
+        <h2 class="fw-7 fs-80 font-sec lh-110 color-white mb-48 text-center">BOOK APPOINTMENT</h2>
         <div class="row">
             <div class="col-lg-4 offset-lg-1 ">
                 <div class="content mb-24 mb-lg-0">

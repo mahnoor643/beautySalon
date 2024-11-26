@@ -10,10 +10,10 @@ require "./assets/conn.php";
             <h2 class="fw-7 fs-105 lh-120 color-white mb-16">ABOUT US</h2>
             <ul class="breadcrumb">
                 <li>
-                    <a href="index-2.html">Home</a>
+                    <a href="index.php">Home</a>
                 </li>
                 <li>
-                    <a href="about.html" class="active">About</a>
+                    <a href="about.php" class="active">About</a>
                 </li>
             </ul>
 
@@ -40,7 +40,7 @@ require "./assets/conn.php";
                         the art of barbering, we have cultivated a reputation for delivering top-quality results and
                         customer satisfaction.</p>
                 </div>
-                <a href="about.html" class="barber-btn">Learn More</a>
+                <a href="about.php" class="barber-btn">Learn More</a>
             </div>
             <div class="col-xxl-7 col-xl-6 col-12">
                 <div class="img-block">
