@@ -1,4 +1,5 @@
 <?php
+error_reporting(0);
 include "../conn.php";
 ?>
 <!DOCTYPE html>
@@ -32,10 +33,10 @@ include "../conn.php";
     <!-- Preloader -->
     <!-- <div id="preloader">
         <div class="loading loading07">
-            <span data-text="T">T</span>
             <span data-text="R">R</span>
-            <span data-text="I">I</span>
-            <span data-text="M">M</span>
+            <span data-text="O">O</span>
+            <span data-text="S">S</span>
+            <span data-text="A">A</span>
             <span data-text="S">S</span>
             <span data-text="T">T</span>
             <span data-text="Y">Y</span>
@@ -55,10 +56,8 @@ include "../conn.php";
                 <div class="container">
                     <nav class="navbar navbar-expand-xl align-items-xl-center align-items-start p-0">
                         <div class="col-xl-4 ">
-                        <a href="index.php"><img alt="" src="assets/media/new.png" class="img-fluid" style="height:40px !important; left: 10000px !important;"></a>
-    
-                        <!-- <a class="navbar-brand" href="index-2.html"><img alt="" src="assets/media/logo.png" style="left: 0px !important;"></a> -->
-                        </div>
+                        <a href="index.php"><img alt="" src="assets/media/logo.png" class="img-fluid" style="height:150px; !important;"></a>
+                            </div>
                         <div class="col-xl-4 text-end">
                             <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
                                 data-bs-target="#mynavbar">

@@ -1,9 +1,13 @@
+<?php
+error_reporting(E_ALL);
+ini_set('display_errors', 1);
+?>
 <!-- footer Area start -->
 <footer class="footer">
     <div class="container">
-        <div class="logo mb-16">
-            <a href="index-2.html">
-                <img src="assets/media/new.png" style="height:40px !important; left: 10000px !important;" alt="">
+        <div class="logo">
+            <a href="index.php">
+                <img src="assets/media/logo.png" style="height:200px !important;" alt="">
             </a>
         </div>
         <span class="me-3">SINCE</span>
@@ -79,6 +83,9 @@
                         $employee = $_POST['employee'];
                         $sql11 = "SELECT * FROM user where email='$email'";
                         $sql11Run = mysqli_query($conn, $sql11);
+                        if(!$sql11Run){
+                            die(mysqli_error());
+                        }
                         if (mysqli_num_rows($sql11Run) > 0) {
                             fetchDetails($email, $date, $service, $employee);
                         } else {
@@ -98,7 +105,7 @@
                     }
 
 
-                    function fetchDetails($email, $date, $service, $employee)
+                    function fetchDetails($email, $date, $service, $employee):void
                     {
                         global $conn;
                         $sql9 = "SELECT * FROM user where email='$email'";

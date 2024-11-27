@@ -1,4 +1,6 @@
+
 <?php
+error_reporting(0);
 include "assets/required/_header.php";
 include "./assets/conn.php";
 ?>
@@ -65,6 +67,9 @@ include "./assets/conn.php";
             // Fetch services from database 
             $sql5 = "SELECT * FROM services LIMIT 4";
             $result5 = mysqli_query($conn, $sql5);
+            if(!$result5){
+                die(mysqli_error($conn));
+            }
             while ($row5 = mysqli_fetch_array($result5)) {
                 ?>
                 <div class="col-lg-5 col-md-6">
@@ -86,57 +91,7 @@ include "./assets/conn.php";
                 <?php
             }
             ?>
-            <!-- <div class="col-lg-5 col-md-6">
-                            <div class="service-block mb-24">
-                                <div class="text-rotate text-start">
-                                    <h4>HAIR CUT</h4>
-                                </div>
-                                <div class="img-block position-relative overflow-hidden text-end">
-                                    <img src="assets/media/service/img-2.png" alt="">
-                                    <div class="content text-start">
-                                        <img src="assets/media/icon/scissors-icon.png" class="mb-64 " alt="">
-                                        <p class="mb-64">Our experienced stylists are skilled in creating a wide range
-                                            of hair styles to suit your preferences. Whether you're looking for a trendy
-                                            haircut, a classic updo, or a special occasion hairstyle.</p>
-                                        <a href="services.html" class="barber-btn">Learn More</a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-lg-5 col-md-6">
-                            <div class="service-block mb-24 mb-lg-0 mb-md-0">
-                                <div class="text-rotate text-start">
-                                    <h4>BEARD TRIM</h4>
-                                </div>
-                                <div class="img-block position-relative overflow-hidden text-end">
-                                    <img src="assets/media/service/img-3.png" alt="">
-                                    <div class="content text-start">
-                                        <img src="assets/media/icon/beard-icon.png" class="mb-64 " alt="">
-                                        <p class="mb-64">Our experienced stylists are skilled in creating a wide range
-                                            of hair styles to suit your preferences. Whether you're looking for a trendy
-                                            haircut, a classic updo, or a special occasion hairstyle.</p>
-                                        <a href="services.html" class="barber-btn">Learn More</a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-lg-5 col-md-6">
-                            <div class="service-block">
-                                <div class="text-rotate text-start">
-                                    <h4>HAIR WASH</h4>
-                                </div>
-                                <div class="img-block position-relative overflow-hidden text-end">
-                                    <img src="assets/media/service/img-4.png" alt="">
-                                    <div class="content text-start">
-                                        <img src="assets/media/icon/shower-icon.png" class="mb-64 " alt="">
-                                        <p class="mb-64">Our experienced stylists are skilled in creating a wide range
-                                            of hair styles to suit your preferences. Whether you're looking for a trendy
-                                            haircut, a classic updo, or a special occasion hairstyle.</p>
-                                        <a href="services.html" class="barber-btn">Learn More</a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div> -->
+       
         </div>
     </div>
 </section>
@@ -176,7 +131,9 @@ include "./assets/conn.php";
             <?php
                 $sql12="SELECT * FROM employee LIMIT 4";
                 $result12=mysqli_query($conn,$sql12);
-                while($row12=mysqli_fetch_array($result12)){
+                if(!$result12){
+                    die("Query Failed".mysqli_error($conn));
+                }                while($row12=mysqli_fetch_array($result12)){
             ?>
             <div class="col-xl-3 col-md-6">
                 <div class="img-block position-relative overflow-hidden text-end mb-24 mb-xl-0">
@@ -193,16 +150,7 @@ include "./assets/conn.php";
                                     <i class="fab fa-facebook-f"></i>
                                 </a>
                             </li>
-                            <!-- <li>
-                                <a href="#">
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 32"
-                                        fill="none">
-                                        <path
-                                            d="M18.242 14.1624L26.9844 4H24.9128L17.3217 12.8238L11.2588 4H4.26587L13.4342 17.3432L4.26587 28H6.33766L14.354 18.6817L20.7569 28H27.7498L18.2415 14.1624H18.242ZM15.4044 17.4608L14.4755 16.1321L7.08416 5.55961H10.2663L16.2312 14.0919L17.1601 15.4206L24.9137 26.5113H21.7316L15.4044 17.4613V17.4608Z"
-                                            fill="#AFB1B6" />
-                                    </svg>
-                                </a>
-                            </li> -->
+                           
                         </ul>
                         <h4 class="fw-7 fs-21 lh-110 font-sec color-white mb-1 text-center"><?php echo $row12['fullName'];?>
                         </h4>
@@ -214,158 +162,6 @@ include "./assets/conn.php";
             <?php
             }
             ?>
-            <!-- <div class="col-xl-3 col-md-6">
-                <div class="img-block position-relative overflow-hidden text-end mb-24 mb-xl-0">
-                    <img src="assets/media/team/card-img-2.png" class="w-100" alt="">
-                    <div class="content ">
-                        <ul class="social-icon list-unstyled mb-24">
-                            <li>
-                                <a href="#">
-                                    <svg width="32" height="32" viewBox="0 0 32 32" fill="none"
-                                        xmlns="http://www.w3.org/2000/svg">
-                                        <g clip-path="url(#clfdsgdfip0_118_786)">
-                                            <path
-                                                d="M31.9686 9.40809C31.8937 7.7078 31.6187 6.53887 31.2248 5.52598C30.8185 4.45082 30.1934 3.48823 29.3744 2.68803C28.5742 1.87537 27.6052 1.2439 26.5425 0.843915C25.5238 0.450039 24.3609 0.175083 22.6607 0.100117C20.9477 0.0188025 20.4039 0 16.0593 0C11.7147 0 11.1709 0.0188025 9.46424 0.0937683C7.76396 0.168734 6.59503 0.443934 5.58238 0.837566C4.50697 1.2439 3.54438 1.86902 2.74418 2.68803C1.93152 3.48823 1.30029 4.45717 0.900067 5.51988C0.506191 6.53887 0.231235 7.70146 0.15627 9.40174C0.0749548 11.1147 0.0561523 11.6585 0.0561523 16.0031C0.0561523 20.3477 0.0749548 20.8915 0.149921 22.5982C0.224886 24.2984 0.500087 25.4674 0.893962 26.4803C1.30029 27.5554 1.93152 28.518 2.74418 29.3182C3.54438 30.1309 4.51332 30.7624 5.57603 31.1623C6.59503 31.5562 7.75761 31.8312 9.45814 31.9061C11.1645 31.9813 11.7086 31.9999 16.0532 31.9999C20.3978 31.9999 20.9416 31.9813 22.6482 31.9061C24.3485 31.8312 25.5174 31.5562 26.5301 31.1623C28.6806 30.3309 30.3809 28.6306 31.2124 26.4803C31.606 25.4613 31.8812 24.2984 31.9562 22.5982C32.0311 20.8915 32.05 20.3477 32.05 16.0031C32.05 11.6585 32.0436 11.1147 31.9686 9.40809ZM29.087 22.4731C29.0181 24.0359 28.7556 24.8799 28.5368 25.4425C27.9991 26.8365 26.8927 27.943 25.4986 28.4807C24.936 28.6995 24.086 28.962 22.5293 29.0306C20.8415 29.1058 20.3353 29.1243 16.0656 29.1243C11.796 29.1243 11.2834 29.1058 9.60172 29.0306C8.03891 28.962 7.195 28.6995 6.63239 28.4807C5.93865 28.2243 5.30718 27.8179 4.79463 27.2866C4.26327 26.7677 3.85694 26.1426 3.60055 25.4488C3.38175 24.8862 3.11925 24.0359 3.05063 22.4795C2.97542 20.7917 2.95687 20.2852 2.95687 16.0156C2.95687 11.7459 2.97542 11.2334 3.05063 9.55191C3.11925 7.98911 3.38175 7.14519 3.60055 6.58258C3.85694 5.8886 4.26327 5.25737 4.80098 4.74458C5.31963 4.21323 5.94475 3.8069 6.63874 3.55074C7.20135 3.33195 8.05161 3.06945 9.60807 3.00059C11.2959 2.92562 11.8023 2.90682 16.0717 2.90682C20.3477 2.90682 20.8539 2.92562 22.5356 3.00059C24.0984 3.06945 24.9424 3.33195 25.505 3.55074C26.1987 3.8069 26.8302 4.21323 27.3427 4.74458C27.8741 5.26348 28.2804 5.8886 28.5368 6.58258C28.7556 7.14519 29.0181 7.99521 29.087 9.55191C29.1619 11.2397 29.1807 11.7459 29.1807 16.0156C29.1807 20.2852 29.1619 20.7853 29.087 22.4731Z"
-                                                fill="#AFB1B6" />
-                                            <path
-                                                d="M16.0592 7.78271C11.521 7.78271 7.83887 11.4646 7.83887 16.0031C7.83887 20.5416 11.521 24.2234 16.0592 24.2234C20.5977 24.2234 24.2796 20.5416 24.2796 16.0031C24.2796 11.4646 20.5977 7.78271 16.0592 7.78271ZM16.0592 21.3354C13.115 21.3354 10.7269 18.9475 10.7269 16.0031C10.7269 13.0586 13.115 10.6707 16.0592 10.6707C19.0036 10.6707 21.3916 13.0586 21.3916 16.0031C21.3916 18.9475 19.0036 21.3354 16.0592 21.3354Z"
-                                                fill="#AFB1B6" />
-                                            <path
-                                                d="M26.5239 7.45765C26.5239 8.51743 25.6646 9.37673 24.6046 9.37673C23.5448 9.37673 22.6855 8.51743 22.6855 7.45765C22.6855 6.39763 23.5448 5.53857 24.6046 5.53857C25.6646 5.53857 26.5239 6.39763 26.5239 7.45765Z"
-                                                fill="#AFB1B6" />
-                                        </g>
-                                        <defs>
-                                            <clipPath id="clfdsgdfip0_118_786">
-                                                <rect width="32" height="32" fill="white" />
-                                            </clipPath>
-                                        </defs>
-                                    </svg>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="#">
-                                    <i class="fab fa-facebook-f"></i>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="#">
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 32"
-                                        fill="none">
-                                        <path
-                                            d="M18.242 14.1624L26.9844 4H24.9128L17.3217 12.8238L11.2588 4H4.26587L13.4342 17.3432L4.26587 28H6.33766L14.354 18.6817L20.7569 28H27.7498L18.2415 14.1624H18.242ZM15.4044 17.4608L14.4755 16.1321L7.08416 5.55961H10.2663L16.2312 14.0919L17.1601 15.4206L24.9137 26.5113H21.7316L15.4044 17.4613V17.4608Z"
-                                            fill="#AFB1B6" />
-                                    </svg>
-
-                                </a>
-                            </li>
-                        </ul>
-                        <h4 class="fw-7 fs-21 lh-110 font-sec color-white mb-1 text-center">Dapper Barber
-                        </h4>
-                        <p class="lh-150 color-gray-3 mb-0 text-center">Barber</p>
-                    </div>
-                </div>
-            </div>
-            <div class="col-xl-3 col-md-6">
-                <div class="img-block position-relative overflow-hidden text-end mb-24 mb-md-0">
-                    <img src="assets/media/team/card-img-3.png" class="w-100" alt="">
-                    <div class="content ">
-                        <ul class="social-icon list-unstyled mb-24">
-                            <li>
-                                <a href="#">
-                                    <svg width="32" height="32" viewBox="0 0 32 32" fill="none"
-                                        xmlns="http://www.w3.org/2000/svg">
-                                        <g clip-path="url(#clipgdfs0_118_786)">
-                                            <path
-                                                d="M31.9686 9.40809C31.8937 7.7078 31.6187 6.53887 31.2248 5.52598C30.8185 4.45082 30.1934 3.48823 29.3744 2.68803C28.5742 1.87537 27.6052 1.2439 26.5425 0.843915C25.5238 0.450039 24.3609 0.175083 22.6607 0.100117C20.9477 0.0188025 20.4039 0 16.0593 0C11.7147 0 11.1709 0.0188025 9.46424 0.0937683C7.76396 0.168734 6.59503 0.443934 5.58238 0.837566C4.50697 1.2439 3.54438 1.86902 2.74418 2.68803C1.93152 3.48823 1.30029 4.45717 0.900067 5.51988C0.506191 6.53887 0.231235 7.70146 0.15627 9.40174C0.0749548 11.1147 0.0561523 11.6585 0.0561523 16.0031C0.0561523 20.3477 0.0749548 20.8915 0.149921 22.5982C0.224886 24.2984 0.500087 25.4674 0.893962 26.4803C1.30029 27.5554 1.93152 28.518 2.74418 29.3182C3.54438 30.1309 4.51332 30.7624 5.57603 31.1623C6.59503 31.5562 7.75761 31.8312 9.45814 31.9061C11.1645 31.9813 11.7086 31.9999 16.0532 31.9999C20.3978 31.9999 20.9416 31.9813 22.6482 31.9061C24.3485 31.8312 25.5174 31.5562 26.5301 31.1623C28.6806 30.3309 30.3809 28.6306 31.2124 26.4803C31.606 25.4613 31.8812 24.2984 31.9562 22.5982C32.0311 20.8915 32.05 20.3477 32.05 16.0031C32.05 11.6585 32.0436 11.1147 31.9686 9.40809ZM29.087 22.4731C29.0181 24.0359 28.7556 24.8799 28.5368 25.4425C27.9991 26.8365 26.8927 27.943 25.4986 28.4807C24.936 28.6995 24.086 28.962 22.5293 29.0306C20.8415 29.1058 20.3353 29.1243 16.0656 29.1243C11.796 29.1243 11.2834 29.1058 9.60172 29.0306C8.03891 28.962 7.195 28.6995 6.63239 28.4807C5.93865 28.2243 5.30718 27.8179 4.79463 27.2866C4.26327 26.7677 3.85694 26.1426 3.60055 25.4488C3.38175 24.8862 3.11925 24.0359 3.05063 22.4795C2.97542 20.7917 2.95687 20.2852 2.95687 16.0156C2.95687 11.7459 2.97542 11.2334 3.05063 9.55191C3.11925 7.98911 3.38175 7.14519 3.60055 6.58258C3.85694 5.8886 4.26327 5.25737 4.80098 4.74458C5.31963 4.21323 5.94475 3.8069 6.63874 3.55074C7.20135 3.33195 8.05161 3.06945 9.60807 3.00059C11.2959 2.92562 11.8023 2.90682 16.0717 2.90682C20.3477 2.90682 20.8539 2.92562 22.5356 3.00059C24.0984 3.06945 24.9424 3.33195 25.505 3.55074C26.1987 3.8069 26.8302 4.21323 27.3427 4.74458C27.8741 5.26348 28.2804 5.8886 28.5368 6.58258C28.7556 7.14519 29.0181 7.99521 29.087 9.55191C29.1619 11.2397 29.1807 11.7459 29.1807 16.0156C29.1807 20.2852 29.1619 20.7853 29.087 22.4731Z"
-                                                fill="#AFB1B6" />
-                                            <path
-                                                d="M16.0592 7.78271C11.521 7.78271 7.83887 11.4646 7.83887 16.0031C7.83887 20.5416 11.521 24.2234 16.0592 24.2234C20.5977 24.2234 24.2796 20.5416 24.2796 16.0031C24.2796 11.4646 20.5977 7.78271 16.0592 7.78271ZM16.0592 21.3354C13.115 21.3354 10.7269 18.9475 10.7269 16.0031C10.7269 13.0586 13.115 10.6707 16.0592 10.6707C19.0036 10.6707 21.3916 13.0586 21.3916 16.0031C21.3916 18.9475 19.0036 21.3354 16.0592 21.3354Z"
-                                                fill="#AFB1B6" />
-                                            <path
-                                                d="M26.5239 7.45765C26.5239 8.51743 25.6646 9.37673 24.6046 9.37673C23.5448 9.37673 22.6855 8.51743 22.6855 7.45765C22.6855 6.39763 23.5448 5.53857 24.6046 5.53857C25.6646 5.53857 26.5239 6.39763 26.5239 7.45765Z"
-                                                fill="#AFB1B6" />
-                                        </g>
-                                        <defs>
-                                            <clipPath id="clipgdfs0_118_786">
-                                                <rect width="32" height="32" fill="white" />
-                                            </clipPath>
-                                        </defs>
-                                    </svg>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="#">
-                                    <i class="fab fa-facebook-f"></i>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="#">
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 32"
-                                        fill="none">
-                                        <path
-                                            d="M18.242 14.1624L26.9844 4H24.9128L17.3217 12.8238L11.2588 4H4.26587L13.4342 17.3432L4.26587 28H6.33766L14.354 18.6817L20.7569 28H27.7498L18.2415 14.1624H18.242ZM15.4044 17.4608L14.4755 16.1321L7.08416 5.55961H10.2663L16.2312 14.0919L17.1601 15.4206L24.9137 26.5113H21.7316L15.4044 17.4613V17.4608Z"
-                                            fill="#AFB1B6" />
-                                    </svg>
-
-                                </a>
-                            </li>
-                        </ul>
-                        <h4 class="fw-7 fs-21 lh-110 font-sec color-white mb-1 text-center">Gentleman's
-                            Barber</h4>
-                        <p class="lh-150 color-gray-3 mb-0 text-center">Barber</p>
-                    </div>
-                </div>
-            </div>
-            <div class="col-xl-3 col-md-6">
-                <div class="img-block position-relative overflow-hidden text-end">
-                    <img src="assets/media/team/card-img-4.png" class="w-100" alt="">
-                    <div class="content ">
-                        <ul class="social-icon list-unstyled mb-24">
-                            <li>
-                                <a href="#">
-                                    <svg width="32" height="32" viewBox="0 0 32 32" fill="none"
-                                        xmlns="http://www.w3.org/2000/svg">
-                                        <g clip-path="url(#clifdgp0_118_786)">
-                                            <path
-                                                d="M31.9686 9.40809C31.8937 7.7078 31.6187 6.53887 31.2248 5.52598C30.8185 4.45082 30.1934 3.48823 29.3744 2.68803C28.5742 1.87537 27.6052 1.2439 26.5425 0.843915C25.5238 0.450039 24.3609 0.175083 22.6607 0.100117C20.9477 0.0188025 20.4039 0 16.0593 0C11.7147 0 11.1709 0.0188025 9.46424 0.0937683C7.76396 0.168734 6.59503 0.443934 5.58238 0.837566C4.50697 1.2439 3.54438 1.86902 2.74418 2.68803C1.93152 3.48823 1.30029 4.45717 0.900067 5.51988C0.506191 6.53887 0.231235 7.70146 0.15627 9.40174C0.0749548 11.1147 0.0561523 11.6585 0.0561523 16.0031C0.0561523 20.3477 0.0749548 20.8915 0.149921 22.5982C0.224886 24.2984 0.500087 25.4674 0.893962 26.4803C1.30029 27.5554 1.93152 28.518 2.74418 29.3182C3.54438 30.1309 4.51332 30.7624 5.57603 31.1623C6.59503 31.5562 7.75761 31.8312 9.45814 31.9061C11.1645 31.9813 11.7086 31.9999 16.0532 31.9999C20.3978 31.9999 20.9416 31.9813 22.6482 31.9061C24.3485 31.8312 25.5174 31.5562 26.5301 31.1623C28.6806 30.3309 30.3809 28.6306 31.2124 26.4803C31.606 25.4613 31.8812 24.2984 31.9562 22.5982C32.0311 20.8915 32.05 20.3477 32.05 16.0031C32.05 11.6585 32.0436 11.1147 31.9686 9.40809ZM29.087 22.4731C29.0181 24.0359 28.7556 24.8799 28.5368 25.4425C27.9991 26.8365 26.8927 27.943 25.4986 28.4807C24.936 28.6995 24.086 28.962 22.5293 29.0306C20.8415 29.1058 20.3353 29.1243 16.0656 29.1243C11.796 29.1243 11.2834 29.1058 9.60172 29.0306C8.03891 28.962 7.195 28.6995 6.63239 28.4807C5.93865 28.2243 5.30718 27.8179 4.79463 27.2866C4.26327 26.7677 3.85694 26.1426 3.60055 25.4488C3.38175 24.8862 3.11925 24.0359 3.05063 22.4795C2.97542 20.7917 2.95687 20.2852 2.95687 16.0156C2.95687 11.7459 2.97542 11.2334 3.05063 9.55191C3.11925 7.98911 3.38175 7.14519 3.60055 6.58258C3.85694 5.8886 4.26327 5.25737 4.80098 4.74458C5.31963 4.21323 5.94475 3.8069 6.63874 3.55074C7.20135 3.33195 8.05161 3.06945 9.60807 3.00059C11.2959 2.92562 11.8023 2.90682 16.0717 2.90682C20.3477 2.90682 20.8539 2.92562 22.5356 3.00059C24.0984 3.06945 24.9424 3.33195 25.505 3.55074C26.1987 3.8069 26.8302 4.21323 27.3427 4.74458C27.8741 5.26348 28.2804 5.8886 28.5368 6.58258C28.7556 7.14519 29.0181 7.99521 29.087 9.55191C29.1619 11.2397 29.1807 11.7459 29.1807 16.0156C29.1807 20.2852 29.1619 20.7853 29.087 22.4731Z"
-                                                fill="#AFB1B6" />
-                                            <path
-                                                d="M16.0592 7.78271C11.521 7.78271 7.83887 11.4646 7.83887 16.0031C7.83887 20.5416 11.521 24.2234 16.0592 24.2234C20.5977 24.2234 24.2796 20.5416 24.2796 16.0031C24.2796 11.4646 20.5977 7.78271 16.0592 7.78271ZM16.0592 21.3354C13.115 21.3354 10.7269 18.9475 10.7269 16.0031C10.7269 13.0586 13.115 10.6707 16.0592 10.6707C19.0036 10.6707 21.3916 13.0586 21.3916 16.0031C21.3916 18.9475 19.0036 21.3354 16.0592 21.3354Z"
-                                                fill="#AFB1B6" />
-                                            <path
-                                                d="M26.5239 7.45765C26.5239 8.51743 25.6646 9.37673 24.6046 9.37673C23.5448 9.37673 22.6855 8.51743 22.6855 7.45765C22.6855 6.39763 23.5448 5.53857 24.6046 5.53857C25.6646 5.53857 26.5239 6.39763 26.5239 7.45765Z"
-                                                fill="#AFB1B6" />
-                                        </g>
-                                        <defs>
-                                            <clipPath id="clifdgp0_118_786">
-                                                <rect width="32" height="32" fill="white" />
-                                            </clipPath>
-                                        </defs>
-                                    </svg>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="#">
-                                    <i class="fab fa-facebook-f"></i>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="#">
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 32"
-                                        fill="none">
-                                        <path
-                                            d="M18.242 14.1624L26.9844 4H24.9128L17.3217 12.8238L11.2588 4H4.26587L13.4342 17.3432L4.26587 28H6.33766L14.354 18.6817L20.7569 28H27.7498L18.2415 14.1624H18.242ZM15.4044 17.4608L14.4755 16.1321L7.08416 5.55961H10.2663L16.2312 14.0919L17.1601 15.4206L24.9137 26.5113H21.7316L15.4044 17.4613V17.4608Z"
-                                            fill="#AFB1B6" />
-                                    </svg>
-
-                                </a>
-                            </li>
-                        </ul>
-                        <h4 class="fw-7 fs-21 lh-110 font-sec color-white mb-1 text-center">Barbers Den</h4>
-                        <p class="lh-150 color-gray-3 mb-0 text-center">Barber</p>
-                    </div>
-                </div>
-            </div> -->
         </div>
     </div>
 </section>
@@ -378,7 +174,9 @@ include "./assets/conn.php";
             <?php
             $sql3 = "select * from packages";
             $sql3Run = mysqli_query($conn, $sql3);
-            while ($row3 = mysqli_fetch_array($sql3Run)) {
+            if(!$sql3Run){
+                die(mysqli_error($conn));
+            }            while ($row3 = mysqli_fetch_array($sql3Run)) {
                 ?>
                 <div class="col-lg-4 col-sm-6">
                     <div class="pricing-block mb-32 mb-lg-0">
@@ -394,49 +192,13 @@ include "./assets/conn.php";
                                 ?>
                                 <li><?php echo $row4['serviceExperty']; ?></li>
                             <?php } ?>
-                            <!-- <li>Face Bleach</li>
-                                    <li>Neck Bleach</li>
-                                    <li>Hand Bleach</li>
-                                    <li>Black Head Back</li>
-                                    <li>Professional Hair Cut</li>
-                                    <li>Quick Manicure</li> -->
+                            
                         </ul>
                         <button class="barber-btn modal-popup">Book Now</button>
                     </div>
                 </div>
             <?php } ?>
-            <!-- <div class="col-lg-4 col-sm-6">
-                            <div class="pricing-block mb-32 mb-lg-0">
-                                <h2 class="title fs-47 fw-7 lh-120 bg-dark-3">DEAL 2</h2>
-                                <h3 class="price fs-47 fw-7 lh-120 color-primary">$400</h3>
-                                <ul class="offer-services unstyled">
-                                    <li>Dermacos Facial</li>
-                                    <li>Face Bleach</li>
-                                    <li>Neck Bleach</li>
-                                    <li>Hand Bleach</li>
-                                    <li>Black Head Back</li>
-                                    <li>Professional Hair Cut</li>
-                                    <li>Quick Manicure</li>
-                                </ul>
-                                <button class="barber-btn modal-popup">Book Now</button>
-                            </div>
-                        </div>
-                        <div class="col-lg-4 col-sm-6 ">
-                            <div class="pricing-block">
-                                <h2 class="title fs-47 fw-7 lh-120 bg-dark-3">DEAL 3</h2>
-                                <h3 class="price fs-47 fw-7 lh-120 color-primary">$500</h3>
-                                <ul class="offer-services unstyled">
-                                    <li>Dermacos Facial</li>
-                                    <li>Face Bleach</li>
-                                    <li>Neck Bleach</li>
-                                    <li>Hand Bleach</li>
-                                    <li>Black Head Back</li>
-                                    <li>Professional Hair Cut</li>
-                                    <li>Quick Manicure</li>
-                                </ul>
-                                <button class="barber-btn modal-popup">Book Now</button>
-                            </div>
-                        </div> -->
+           
         </div>
     </div>
 </section>
@@ -477,6 +239,9 @@ include "./assets/conn.php";
                     $employee = $_POST['employee'];
                     $sql11 = "SELECT * FROM user where email='$email'";
                     $sql11Run = mysqli_query($conn, $sql11);
+                    if (!$sql11Run) {
+                        die(mysqli_error());
+                    }
                     if (mysqli_num_rows($sql11Run) > 0) {
                         fetchDetails($email, $date, $service, $employee);
                     } else {
@@ -564,9 +329,7 @@ include "./assets/conn.php";
                                             <?php echo $row6['serviceTitle']; ?>
                                         </option>
                                     <?php } ?>
-                                    <!-- <option value="hair cut">HAIR CUT</option>
-                                                <option value="beard trim">BEARD TRIM</option>
-                                                <option value="hair wash">HAIR WASH</option> -->
+                                    
                                 </select>
                             </div>
                         </div>
@@ -582,9 +345,7 @@ include "./assets/conn.php";
                                         <option value="<?php echo $row7['employeeID']; ?>"><?php echo $row7['fullName']; ?>
                                         </option>
                                     <?php } ?>
-                                    <!-- <option value="dapper">Dapper Barber</option>
-                                                <option value="gentelman">Gentleman's Barber</option>
-                                                <option value="barber">Barbers Den</option> -->
+                                   
                                 </select>
                             </div>
                         </div>
@@ -851,7 +612,7 @@ include "./assets/conn.php";
         <div class="row justify-content-center">
             <div class="col-lg-5">
                 <div class="customer-feed mb-32">
-                    <img src="sm-img1.png" class="costumer-logo" alt="">
+                    <img src="assets/media/sm-img1.png" class="costumer-logo" alt="">
                     <div class="content">
                         <h4 class="fw-7 fs-21 color-white lh-110 font-sec mb-16">Fresco Miller</h4>
                         <p class="lh-150 color-gray-3 m-0">I've been coming to Trim & Style for years, and they never
@@ -862,7 +623,7 @@ include "./assets/conn.php";
             </div>
             <div class="col-lg-5">
                 <div class="customer-feed mb-32">
-                    <img src="sm-img2.png" class="costumer-logo" alt="">
+                    <img src="assets/media/sm-img2.png" class="costumer-logo" alt="">
                     <div class="content">
                         <h4 class="fw-7 fs-21 color-white lh-110 font-sec mb-16">Dave Walker</h4>
                         <p class="lh-150 color-gray-3 m-0">I had an amazing experience at Trim & Style! The barber was
@@ -873,7 +634,7 @@ include "./assets/conn.php";
             </div>
             <div class="col-lg-5">
                 <div class="customer-feed mb-32 mb-lg-0">
-                    <img src="sm-img3.png" class="costumer-logo" alt="">
+                    <img src="assets/media/sm-img3.png" class="costumer-logo" alt="">
                     <div class="content">
                         <h4 class="fw-7 fs-21 color-white lh-110 font-sec mb-16">Austin Silco</h4>
                         <p class="lh-150 color-gray-3 m-0">I recently tried Trim & Style for the first time. The
@@ -884,7 +645,7 @@ include "./assets/conn.php";
             </div>
             <div class="col-lg-5">
                 <div class="customer-feed">
-                    <img src="sm-img4.png" class="costumer-logo" alt="">
+                    <img src="assets/media/sm-img3.png" class="costumer-logo" alt="">
                     <div class="content">
                         <h4 class="fw-7 fs-21 color-white lh-110 font-sec mb-16">Jeager Milka</h4>
                         <p class="lh-150 color-gray-3 m-0">I visited Trim & Style for a hair styling session before a

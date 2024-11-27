@@ -1,4 +1,6 @@
+
 <?php
+error_reporting(0);
 include "./assets/required/_header.php";
 require "./assets/conn.php";
 ?>
@@ -210,13 +212,13 @@ require "./assets/conn.php";
 <!-- Pricing Area end -->
 
 <!-- feedback Area start -->
-<section class="feedback bg-dark pb-100">
+<section class="feedback bg-dark pt-100 pb-100">
     <div class="container">
         <h2 class="fw-7 fs-80 font-sec lh-110 color-white mb-48 text-center">CUSTOMER FEEDBACK</h2>
         <div class="row justify-content-center">
             <div class="col-lg-5">
                 <div class="customer-feed mb-32">
-                    <img src="sm-img1.png" class="costumer-logo" alt="">
+                    <img src="assets/media/sm-img1.png" class="costumer-logo" alt="">
                     <div class="content">
                         <h4 class="fw-7 fs-21 color-white lh-110 font-sec mb-16">Fresco Miller</h4>
                         <p class="lh-150 color-gray-3 m-0">I've been coming to Trim & Style for years, and they never
@@ -227,7 +229,7 @@ require "./assets/conn.php";
             </div>
             <div class="col-lg-5">
                 <div class="customer-feed mb-32">
-                    <img src="sm-img2.png" class="costumer-logo" alt="">
+                    <img src="assets/media/sm-img2.png" class="costumer-logo" alt="">
                     <div class="content">
                         <h4 class="fw-7 fs-21 color-white lh-110 font-sec mb-16">Dave Walker</h4>
                         <p class="lh-150 color-gray-3 m-0">I had an amazing experience at Trim & Style! The barber was
@@ -237,8 +239,8 @@ require "./assets/conn.php";
                 </div>
             </div>
             <div class="col-lg-5">
-                <div class="customer-feed mb-32">
-                    <img src="sm-img3.png" class="costumer-logo" alt="">
+                <div class="customer-feed mb-32 mb-lg-0">
+                    <img src="assets/media/sm-img3.png" class="costumer-logo" alt="">
                     <div class="content">
                         <h4 class="fw-7 fs-21 color-white lh-110 font-sec mb-16">Austin Silco</h4>
                         <p class="lh-150 color-gray-3 m-0">I recently tried Trim & Style for the first time. The
@@ -248,8 +250,8 @@ require "./assets/conn.php";
                 </div>
             </div>
             <div class="col-lg-5">
-                <div class="customer-feed mb-32">
-                    <img src="sm-img4.png" class="costumer-logo" alt="">
+                <div class="customer-feed">
+                    <img src="assets/media/sm-img3.png" class="costumer-logo" alt="">
                     <div class="content">
                         <h4 class="fw-7 fs-21 color-white lh-110 font-sec mb-16">Jeager Milka</h4>
                         <p class="lh-150 color-gray-3 m-0">I visited Trim & Style for a hair styling session before a

@@ -1,4 +1,6 @@
+
 <?php
+error_reporting(0);
 include "./assets/required/_header.php";
 require "./assets/conn.php";
 ?>

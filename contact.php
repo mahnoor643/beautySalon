@@ -1,4 +1,6 @@
+
 <?php
+error_reporting(0);
 include "./assets/required/_header.php";
 require "./assets/conn.php";
 
@@ -17,6 +19,8 @@ if(isset($_POST['submit'])){
     }
 }
 ?>
+
+
 
 <!-- banner Area end -->
 <section class="inner-banner">
