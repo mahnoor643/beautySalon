@@ -16,7 +16,7 @@ include "../conn.php";
     <title>Trim Style - Barber Shop Html5 Bootstrap Template</title>
 
     <!-- Favicon -->
-    <link rel="shortcut icon" type="image/x-icon" href="assets/media/favicon-dark.png">
+    <link rel="shortcut icon" type="image/x-icon" href="assets/media/crownIcon.png">
 
     <!-- All CSS files -->
     <link rel="stylesheet" href="assets/css/vendor/bootstrap.min.css">

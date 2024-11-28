@@ -172,7 +172,7 @@ include "./assets/conn.php";
         <h2 class="fw-7 fs-80 font-sec lh-110 color-white mb-48 text-center">GROOM PACKAGES</h2>
         <div class="row">
             <?php
-            $sql3 = "select * from packages";
+            $sql3 = "select * from packages LIMIT 3";
             $sql3Run = mysqli_query($conn, $sql3);
             if(!$sql3Run){
                 die(mysqli_error($conn));
