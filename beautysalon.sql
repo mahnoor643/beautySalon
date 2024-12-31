@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 26, 2024 at 03:55 PM
+-- Generation Time: Dec 31, 2024 at 10:27 AM
 -- Server version: 10.4.24-MariaDB
 -- PHP Version: 8.1.6
 
@@ -45,7 +45,8 @@ CREATE TABLE `appointment` (
 
 INSERT INTO `appointment` (`appointmentID`, `fullName`, `email`, `phoneNo`, `serviceID`, `employeeID`, `packageID`, `userID`, `Date`) VALUES
 (1, 'Mahnoor', 'mahnoort643@gmail.com', 3127654556, 4, 3, NULL, 1, '29 Nov, 2024'),
-(2, 'Humna', 'humna3da@gmail.com', 3128896770, 2, 2, NULL, 4, '30 Nov, 2024');
+(2, 'Humna', 'humna3da@gmail.com', 3128896770, 2, 2, NULL, 4, '30 Nov, 2024'),
+(3, 'ushna', 'ushna123@gmail.com', 3001234567, 1, 1, NULL, 5, '2024-11-29');
 
 -- --------------------------------------------------------
 
@@ -251,7 +252,8 @@ CREATE TABLE `user` (
 INSERT INTO `user` (`userID`, `fullName`, `email`, `phoneNo`, `role`) VALUES
 (1, 'Mahnoor', 'mahnoort643@gmail.com', 3127654556, 'Client'),
 (3, 'Mahnoor', 'asma@gmail.com', 3128859970, 'Client'),
-(4, 'Humna', 'humna3da@gmail.com', 3128896770, 'Client');
+(4, 'Humna', 'humna3da@gmail.com', 3128896770, 'Client'),
+(5, 'ushna', 'ushna123@gmail.com', 3001234567, 'Client');
 
 --
 -- Indexes for dumped tables
@@ -327,7 +329,7 @@ ALTER TABLE `user`
 -- AUTO_INCREMENT for table `appointment`
 --
 ALTER TABLE `appointment`
-  MODIFY `appointmentID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `appointmentID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `contact`
@@ -369,13 +371,13 @@ ALTER TABLE `serviceexpertise`
 -- AUTO_INCREMENT for table `services`
 --
 ALTER TABLE `services`
-  MODIFY `serviceID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `serviceID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT for table `user`
 --
 ALTER TABLE `user`
-  MODIFY `userID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `userID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- Constraints for dumped tables
