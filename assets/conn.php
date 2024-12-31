@@ -9,5 +9,4 @@ $conn = mysqli_connect($server, $user, $pwd, $db);
 // }else{
 //     echo "Connection failed: ". mysqli_connect_error();
 // }
-
 ?>

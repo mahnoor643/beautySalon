@@ -1,6 +1,9 @@
 <?php
 error_reporting(0);
 include "../conn.php";
+
+// Get the current file name without the directory path
+$currentPage = basename($_SERVER['PHP_SELF']);
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -13,7 +16,7 @@ include "../conn.php";
             shrink-to-fit=no">
     <meta name="description" content="Trim Style HTML5 Bootstrap website Template">
 
-    <title>Trim Style - Barber Shop Html5 Bootstrap Template</title>
+    <title>Rosa Salon</title>
 
     <!-- Favicon -->
     <link rel="shortcut icon" type="image/x-icon" href="assets/media/crownIcon.png">
@@ -64,21 +67,21 @@ include "../conn.php";
                                 <i class="fas fa-bars"></i>
                             </button>
                             <div class="collapse navbar-collapse justify-content-center text-start" id="mynavbar">
-                                <ul class="navbar-nav mainmenu m-0">
-                                    <li class="menu-item-has-children">
-                                        <a href="index.php" class="active">Home</a>
-                                    </li>
-                                    <li class="menu-item-has-children">
-                                        <a href="about.php">About</a>
-                                    </li>
-                                    <li class="menu-item-has-children">
-                                        <a href="services.php">Services</a>
-                                    </li>
-                                    <li class="menu-item-has-children">
-                                        <a href="contact.php">Contact</a>
-                                    </li>
-                                </ul>
-                            </div>
+    <ul class="navbar-nav mainmenu m-0">
+        <li class="menu-item-has-children">
+            <a href="index.php" class="<?php echo ($currentPage == 'index.php') ? 'active' : ''; ?>">Home</a>
+        </li>
+        <li class="menu-item-has-children">
+            <a href="about.php" class="<?php echo ($currentPage == 'about.php') ? 'active' : ''; ?>">About</a>
+        </li>
+        <li class="menu-item-has-children">
+            <a href="services.php" class="<?php echo ($currentPage == 'services.php') ? 'active' : ''; ?>">Services</a>
+        </li>
+        <li class="menu-item-has-children">
+            <a href="contact.php" class="<?php echo ($currentPage == 'contact.php') ? 'active' : ''; ?>">Contact</a>
+        </li>
+    </ul>
+</div>
                         </div>
                         <div class="col-xl-4 d-xl-block d-none text-end">
                             <button class="barber-btn modal-popup">Book Appointment</button>
